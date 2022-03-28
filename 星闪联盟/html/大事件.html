@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="../lib/zepto.js"></script>
+    <script src="../lib/touch.js"></script>
+    <script src="../lib/fx.js"></script>
+    <script src="https://unpkg.com/@better-scroll/core@latest/dist/core.js"></script>
+    <script src="../lib/flexible.js"></script>
+    <script src="../lib/lazyLoad.js"></script>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/大事件.css">
+    <title>大事件</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="content">
+            <header>
+                <div class="bg"></div>
+                <div class="head-content">
+                    <div class="top">
+                        <div class="logo">
+                            <img src="../img/logo.png" alt="">
+                        </div>
+                        <div class="menu">
+                            <p>登录</p>
+                            <p><img src="../img/菜单.png" alt=""></p>
+                        </div>
+                    </div>
+                    <p class="title">大事件</p>
+                </div>
+            </header>
+            <section>
+                <div class="mengban"></div>
+                <div class="menu-list">
+                    <div class="menu-logo">
+                        <div class="menu-img">
+                            <img src="../img/logo.png" alt="">
+                        </div>
+                        <div class="menu-language">
+                            <span>中文</span><span>EN</span>
+                        </div>
+                    </div>
+                    <ul class="list-ul">
+                        <li>首页</li>
+                        <li>星闪联盟</li>
+                        <li>新闻资讯</li>
+                        <li>产业生态</li>
+                        <li>会员专享</li>
+                        <li>加盟星闪</li>
+                    </ul>
+                </div>
+                <ul class="tab">
+                    <li><a href="./联盟简介.html">联盟简介</a></li>
+                    <li><a href="./联盟领导.html">联盟领导</a></li>
+                    <li><a href="./联盟成员.html">联盟成员</a></li>
+                    <li><a href="javascript;">专家智库</a></li>
+                    <li><a href="javascript;">联盟工作组</a></li>
+                    <li><a href="./大事件.html">大事件</a></li>
+                    <li><a href="javascript;">联盟制度</a></li>
+                </ul>
+                <h1>大事件</h1>
+            </section>
+            <footer>
+                <p>Copyright © 2020 星闪联盟 All Rights Reserved 京ICP备17051284号-2</p>
+            </footer>
+        </div>
+    </div>
+    <script>
+        //lazyload
+        $(function() {
+            $("img.lazyload").lazyload()
+        });
+        //batterscroll
+            $(function () {
+                bs.refresh();
+                const bs = new BScroll('.wrapper');
+            })
+        //menu-list
+        $('.list-ul li').tap(function () {
+            $(this).addClass('bgc').siblings().removeClass('bgc');
+        });
+        $('.menu p:last-child').tap(function () {
+            $('.mengban').show().next().addClass('active');
+        })
+        $('.mengban').tap(function () {
+            $('.menu-list').removeClass('active').prev().hide();
+        })
+        //language
+        $('.menu-language span:first-child').addClass('bgc-lang')
+        $('.menu-language span').tap(function () {
+            $(this).addClass('bgc-lang').siblings().removeClass('bgc-lang')
+        })
+        $(function () {
+            $('.title').addClass('title-active');
+        })
+    </script>
+</body>
+</html>
