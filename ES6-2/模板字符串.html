@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const per = {
+            name: '张三',
+            age: 20,
+            say: function () {
+                console.log(`I am ${this.name}，i am ${this.age} years old`);
+            }
+        }
+        per.say()
+        let x = 1;
+        let y = 2;
+        console.log(`${x} + ${y * 2} = ${x + y * 2}`); // 1 + 4 = 5
+    </script>
+</body>
+</html>

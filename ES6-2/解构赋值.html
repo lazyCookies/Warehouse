@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1. 数组的解构赋值  规则： 先去匹配模式，按照一一对应的关系进行赋值
+         let [a, b, c] = [1, 2, 3];
+         // a=1, b=2, c=3
+         let [foo, [[bar], baz]] = [1, [[2], 3]];
+         // foo=1,bar=2,baz=3
+         let [ , , third] = ["foo", "bar", "baz"];
+        //third = 'baz'   少变量多值时，只找对应的关系
+				{
+					let [bar, foo] = [1];
+					// bar =1, foo = undefined  多变量少值时，多的变量的值是undefined
+					let [head, ...tail] = [1, 2, 3, 4];
+					// ... 扩展运算符
+					// head = 1, tail = [2,3,4]
+					let [a, [b], d] = [1, [2, 3], 4];
+
+				}
+				// 2）对象的解构赋值 规则： 先匹配模式， 在等号的右侧找同属性名所对应的值，
+				{
+					// let { foo: foo, bar: bar} = { foo: "aaa", bar: "bbb" }
+					let { foo, bar } = { foo: "aaa", bar: "bbb" };
+					// 对象的简洁表示法  对象的属性和值都相同时，可以简写成一个
+					// foo= 'aaa'  bar='bbb'
+
+					let name = 'Alice'
+					let person = {
+						name, // name: name
+						age: 20,
+						say() { // 方法也可以简写   say: function () {}
+							console.log(`I am ${this.name}，i am ${this.age} years old`);
+						}
+					}
+					person.say()
+
+					let { foo: baz } = { foo: 'aaa', bar: 'bbb' };
+					// baz = 'aaa'   少变量多值的情况， 多余的值扔掉
+
+					let obj = {
+						p: [
+							'Hello',
+							{ y: 'World' }
+						]
+					};
+
+					let { p: [x, { y }] } = obj;
+
+					// x = 'hello'   y = 'world'
+
+					// 解构赋值  默认值的情况,只有在解构失败时才会选默认值，
+					{
+						let {x, y = 5} = {x: 1};
+						// x = 1, y = 5
+					}
+					{
+						let {x, y = 5} = {x: 1, y: 10};
+						// x = 1  y = 10
+					}
+
+
+
+				}
+
+
+
+
+
+
+    </script>
+</body>
+</html>

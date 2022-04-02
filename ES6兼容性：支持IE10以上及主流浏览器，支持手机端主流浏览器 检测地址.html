@@ -1,0 +1,194 @@
+<html>
+<head>
+  <title>Evernote Export</title>
+  <basefont face="微软雅黑" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="YXBJ Windows/604484 (zh-CN, DDL); Windows/10.0.0 (Win64); EDAMVersion=V2;"/>
+  <meta name="content-class" content="yinxiang.markdown"/>
+  <style>
+    body, td {
+      font-family: 微软雅黑;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name="514"/>
+
+<div><span><div style="font-size: 14px; margin: 0; padding: 0; width: 100%;"><ol style="line-height: 160%; box-sizing: content-box; display: block; padding-left: 30px; margin: 6px 0 10px; color: #333; list-style-type: decimal;">
+<li style="line-height: 160%; box-sizing: content-box;">
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">ES6兼容性：支持IE10以上及主流浏览器，支持手机端主流浏览器 <a href="https://kangax.github.io/compat-table/es6/" style="line-height: 160%; box-sizing: content-box; text-decoration: underline; color: #5286bc;">检测地址</a></p>
+</li>
+<li style="line-height: 160%; box-sizing: content-box;">
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">ES6代码转成ES5：</p>
+<ol style="line-height: 160%; box-sizing: content-box; display: block; padding-left: 30px; margin: 6px 0 10px; color: #333; list-style-type: decimal; margin-top: 0; margin-bottom: 0;">
+<li style="line-height: 160%; box-sizing: content-box;">在线转换</li>
+<li style="line-height: 160%; box-sizing: content-box;">工程化（包工具）</li>
+</ol>
+</li>
+<li style="line-height: 160%; box-sizing: content-box;">
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">let/const 声明变量</p>
+<ol style="line-height: 160%; box-sizing: content-box; display: block; padding-left: 30px; margin: 6px 0 10px; color: #333; list-style-type: decimal; margin-top: 0; margin-bottom: 0;">
+<li style="line-height: 160%; box-sizing: content-box;">let命令存在块级作用域 ,只在声明的代码块内有效</li>
+<li style="line-height: 160%; box-sizing: content-box;">let命令不存在变量提升的问题</li>
+<li style="line-height: 160%; box-sizing: content-box;">let不允许在相同作用域内，重复声明同一个变量<br/>
+const声明一个只读的常量。一旦声明，常量的值就不能改变</li>
+</ol>
+</li>
+<li style="line-height: 160%; box-sizing: content-box;">
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">解构赋值</p>
+<ol style="line-height: 160%; box-sizing: content-box; display: block; padding-left: 30px; margin: 6px 0 10px; color: #333; list-style-type: decimal; margin-top: 0; margin-bottom: 0;">
+<li style="line-height: 160%; box-sizing: content-box;">数组的解构赋值    //匹配模式，一一对应的关系进行赋值<br/>
+let [a,b,[c, ,e]] = [3,5,[1, , ,2]] 几个变量？4个    变量每个值=？a=3,b=5,c=1,e=undefined</li>
+<li style="line-height: 160%; box-sizing: content-box;">对象的解构赋值   //匹配模式，同属性名相同进行赋值<br/>
+let {x,y,z=3} = {x:4,y:5}  几个变量？3个  变量每个值=？ x=4,y=5,z=3</li>
+</ol>
+</li>
+<li style="line-height: 160%; box-sizing: content-box;">
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">字符串的扩展<br/>
+1. 模版字符串   反引号``  ，反引号中的内容解析后都是字符串，如果要插入变量, ${变量名}</p>
+</li>
+<li style="line-height: 160%; box-sizing: content-box;">
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">字符串的新增方法</p>
+<ol style="line-height: 160%; box-sizing: content-box; display: block; padding-left: 30px; margin: 6px 0 10px; color: #333; list-style-type: decimal; margin-top: 0; margin-bottom: 0;">
+<li style="line-height: 160%; box-sizing: content-box;">repeat()方法返回一个新字符串，表示将原字符串重复n次。<br/>
+String.repeat(n) var s = 'hello,world!'   s.repeat(100)      重复100次</li>
+<li style="line-height: 160%; box-sizing: content-box;">如果某个字符串不够指定长度，会在头部或尾部补全。padStart()用于头部补全，padEnd()用于尾部补全<br/>
+String.padStart(长度，'填充的字符串')  //通常用于时分秒<br/>
+'x'.padStart(5, 'ab') // 'ababx'     //5   05  var h = 10, h.padStart(2,'0')//010 10 01<br/>
+'hello'.padEnd(10,'!')//hello!!!!!</li>
+<li style="line-height: 160%; box-sizing: content-box;">trimStart()消除字符串头部的空格，trimEnd()消除尾部的空格,和trim()用法基本一致</li>
+</ol>
+</li>
+<li style="line-height: 160%; box-sizing: content-box;">
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">正则的扩展<br/>
+1. 字符串的正则方法  match(),replace(),search()和split()</p>
+</li>
+<li style="line-height: 160%; box-sizing: content-box;">
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">数值的扩展<br/>
+1.</p>
+</li>
+<li style="line-height: 160%; box-sizing: content-box;">
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">函数的扩展</p>
+<ol style="line-height: 160%; box-sizing: content-box; display: block; padding-left: 30px; margin: 6px 0 10px; color: #333; list-style-type: decimal; margin-top: 0; margin-bottom: 0;">
+<li style="line-height: 160%; box-sizing: content-box;">函数参数的默认值设置</li>
+<li style="line-height: 160%; box-sizing: content-box;">rest函数参数    函数的形参中...变量名 = 函数中多余的参数,会把参数放到数组中</li>
+<li style="line-height: 160%; box-sizing: content-box;">箭头函数（重点）
+<ul style="line-height: 160%; box-sizing: content-box; display: block; list-style-type: disc; padding-left: 30px; margin: 6px 0 10px; color: #333; margin-top: 0; margin-bottom: 0;">
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">没有参数，只有返回值的  () =&gt; 1</li>
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">没有参数，没有返回值的  () =&gt; {}</li>
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">只有一个参数，只有返回值的 a =&gt; a || (a) =&gt; a</li>
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">只有一个参数，没有返回值的 a =&gt; {} || (a) =&gt; {}</li>
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">有多个参数，只有返回值的  (a,b,c) =&gt; a+b+c</li>
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">有多个参数，没有返回值的 (a,b,c) =&gt; {}<br/>
+通用的写法： (参数1，参数2，) =&gt; { 代码块 }<br/>
+问题：1.New 操作符的过程   2.JSON.parse()和JSON.stringify()的理解  3. JS的严格版本和非严格版本</li>
+</ul>
+</li>
+<li style="line-height: 160%; box-sizing: content-box;">构造函数和普通函数的区别<br/>
+&gt;1. 创建一个新对象，将构造函数的this指向该对象，赋予该对象构造函数的属性和方法，返回该新对象<br/>
+&gt;2. JSON.parse() 把JSON字符串转成JSON对象，JSON.stringify()把JSON对象转成JSON字符串<br/>
+&gt;4. 构造函数需要new来声明新对象，构造函数没有返回值，构造函数的属性和方法都需要用this指向，构造函数首字母大写<br/>
+&gt;3.</li>
+</ol>
+</li>
+<li style="line-height: 160%; box-sizing: content-box;">
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">数组的扩展</p>
+<ol style="line-height: 160%; box-sizing: content-box; display: block; padding-left: 30px; margin: 6px 0 10px; color: #333; list-style-type: decimal; margin-top: 0; margin-bottom: 0;">
+<li style="line-height: 160%; box-sizing: content-box;">扩展运算符...    [指数运算符**   3**4 =81？  <strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">=   x=2    y =  x</strong>3]<br/>
+...[]  将一个数组转为用逗号分隔的参数序列    ...[2,3,4] == 2,3,4</li>
+<li style="line-height: 160%; box-sizing: content-box;">Array.from() 可以把类似数组的对象或者DOM集合转成真正的数组</li>
+</ol>
+</li>
+<li style="line-height: 160%; box-sizing: content-box;">
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">对象的扩展</p>
+<ol style="line-height: 160%; box-sizing: content-box; display: block; padding-left: 30px; margin: 6px 0 10px; color: #333; list-style-type: decimal; margin-top: 0; margin-bottom: 0;">
+<li style="line-height: 160%; box-sizing: content-box;">简介表示法<br/>
+//对象当中，属性名的值是一个变量时，且变量名和属性名相同，可以简写一个<br/>
+//对象当中，属性的值是一个方法时， 可以简写成 属性名(){}</li>
+<li style="line-height: 160%; box-sizing: content-box;">属性名表达式<br/>
+var key = 'abc'<br/>
+obj={[key]:'hello'}</li>
+<li style="line-height: 160%; box-sizing: content-box;">函数的name属性，返回函数名</li>
+<li style="line-height: 160%; box-sizing: content-box;">对象的扩展运算符</li>
+<li style="line-height: 160%; box-sizing: content-box;">链判断运算符 ?.  ?.运算符，直接在链式调用的时候判断，左侧的对象是否为null或undefined。如果是的，就不再往下运算，而是返回undefined</li>
+<li style="line-height: 160%; box-sizing: content-box;">Null 判断运算符<br/>
+Null 判断运算符?? 它的行为类似||，但是只有运算符左侧的值为null或undefined时，才会返回右侧的值。</li>
+</ol>
+</li>
+<li style="line-height: 160%; box-sizing: content-box;">
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">对象的新增方法 (了解方法名字)</p>
+</li>
+<li style="line-height: 160%; box-sizing: content-box;">
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">Symbol</p>
+<ul style="line-height: 160%; box-sizing: content-box; display: block; list-style-type: disc; padding-left: 30px; margin: 6px 0 10px; color: #333; margin-top: 0; margin-bottom: 0;">
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">
+<p style="line-height: 160%; box-sizing: content-box; color: #333; margin: 0;">//1.凡是属性名属于 Symbol 类型，就都是独一无二的，可以保证不会与其他属性名产生冲突。<br/>
+//2.原始的数据类型： //	undefined,Number,String,null,Boolean,Symbol<br/>
+//3.如果 Symbol 的参数是一个对象，就会调用该对象的toString方法，将其转为字符串，然后才生成一个 Symbol 值。如果没有toString的方法，会返回Symbol([object Object])<br/>
+for...in... 循环遍历对象时只能获取对象下的字符串属性名，不能获取Symbol类型值的属性名<br/>
+Object.getOwnPropertySymbols(a)//得到的是a对象中所有的Symbol类型的值的属性名,不包含字符串类型的属性名<br/>
+Reflect.ownKeys()方法可以返回所有类型的键名，包括常规键名和 Symbol 键名。<br/>
+Symbol.for()与Symbol()这两种写法，都会生成新的 Symbol。它们的区别是，前者会被登记在全局环境中供搜索，后者不会。Symbol.for()不会每次调用就返回一个新的 Symbol 类型的值，而是会先检查给定的key是否已经存在，如果不存在才会新建一个值。比如，如果你调用Symbol.for(&quot;cat&quot;)30 次，每次都会返回同一个 Symbol 值，但是调用Symbol(&quot;cat&quot;)30 次，会返回 30 个不同的 Symbol 值。<br/>
+Symbol.keyFor()方法返回一个已登记的 Symbol 类型值的key</p>
+</li>
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">
+<p style="line-height: 160%; box-sizing: content-box; color: #333; margin: 0;">作为属性名的Symbol值  obj[Symbol()] = '值'</p>
+</li>
+</ul>
+</li>
+<li style="line-height: 160%; box-sizing: content-box;">
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">Set 和 Map 数据结构</p>
+<ul style="line-height: 160%; box-sizing: content-box; display: block; list-style-type: disc; padding-left: 30px; margin: 6px 0 10px; color: #333; margin-top: 0; margin-bottom: 0;">
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">
+<p style="line-height: 160%; box-sizing: content-box; color: #333; margin: 0;">数据结构 Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。<br/>
+//数组的去重  [...new Set(arr)]  调用set的数据结构，以要去重的数组arr作为参数，再执行扩展运算符转成参数序列，最后再加一个[]<br/>
+//字符串去重  [...new Set(str)].join('') 调用set数据结构，以要去重的字符串str作为参数，再执行扩展运算符，转成字符串参数序列，加上[]后变成字符串数组，再调用数组的join()方法,以空字符串进行连结<br/>
+Set.prototype.add(value)：添加某个值，返回 Set 结构本身。<br/>
+Set.prototype.delete(value)：删除某个值，返回一个布尔值，表示删除是否成功。<br/>
+Set.prototype.has(value)：返回一个布尔值，表示该值是否为Set的成员。<br/>
+Set.prototype.clear()：清除所有成员，没有返回值。</p>
+</li>
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">
+<p style="line-height: 160%; box-sizing: content-box; color: #333; margin: 0;">Map 数据结构。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。<br/>
+Map.prototype.set(key, value)  set方法设置键名key对应的键值为value，然后返回整个 Map 结构。如果key已经有值，则键值会被更新，否则就新生成该键。<br/>
+Map.prototype.get(key)   get方法读取key对应的键值，如果找不到key，返回undefined。<br/>
+Map.prototype.has(key)  has方法返回一个布尔值，表示某个键是否在当前 Map 对象之中。<br/>
+Map.prototype.delete(key)  delete方法删除某个键，返回true。如果删除失败，返回false。<br/>
+Map.prototype.clear()  clear方法清除所有成员，没有返回值。</p>
+</li>
+</ul>
+</li>
+<li style="line-height: 160%; box-sizing: content-box;">
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">Proxy 代理（拦截器）<br/>
+//1. 如果要设置代理，生成Proxy构造函数 的实例化对象，Proxy构造函数接受两个参数(目标对象，拦截)<br/>
+//2. 如果拦截没有，那实例化对象就等同于你的目标对象<br/>
+//3. 拦截器handler中的配置项  set,get,等方法<br/>
+//4. 拦截器handler中的方法，接受两个参数（目标对象，）</p>
+</li>
+<li style="line-height: 160%; box-sizing: content-box;">
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">Promise 对象<br/>
+异步操作<br/>
+//创建	Promise对象,  参数:resolve, reject   .then() 方法内的参数作用   .catch()方法内的参数作用   .all()方法的使用</p>
+<ul style="line-height: 160%; box-sizing: content-box; display: block; list-style-type: disc; padding-left: 30px; margin: 6px 0 10px; color: #333; margin-top: 0; margin-bottom: 0;">
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">创建 Promise对象，以回调函数作为参数，回调函数中，有两个参数  resolve，reject， resolve代表的是成功时的方法，reject 代表的是失败的方法</li>
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">创建的对象会链式调用.then().catch()方法， then方法可以接受两个回调函数作为参数。第一个回调函数是Promise对象的状态变为resolved时调用，第二个回调函数是Promise对象的状态变为rejected时调用。其中，第二个函数是可选的，不一定要提供。catch方法  用于指定发生错误时的回调函数。也就是reject()所对应的回调函数</li>
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">Promise.all().then().catch() ,其中then方法中代表是请求成功的数据集合，假如有一条请求失败就会返回catch， catch方法是请求失败的错误信息</li>
+</ul>
+</li>
+<li style="line-height: 160%; box-sizing: content-box;">
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">Module 模块</p>
+<ul style="line-height: 160%; box-sizing: content-box; display: block; list-style-type: disc; padding-left: 30px; margin: 6px 0 10px; color: #333; margin-top: 0; margin-bottom: 0;">
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">module: 输出和输入<br/>
+模块功能主要由两个命令构成：export和import。<br/>
+export命令用于规定模块的对外接口，import命令用于输入其他模块提供的功能。<br/>
+语法： a.js/  export {a,b,c} 输出a，b，c三个变量<br/>
+b.js/  import {a,b,c} from 'a.js' 输入a，b，c三个变量<br/>
+export default 变量，输出，一个文件只能有一个默认输出<br/>
+import 变量 	form 'a.js' 输入时变量不加{}<br/>
+//为后边的框架服务</li>
+</ul>
+</li>
+</ol>
+</div><center style="display:none !important;visibility:collapse !important;height:0 !important;white-space:nowrap;width:100%;overflow:hidden">1.%20ES6%E5%85%BC%E5%AE%B9%E6%80%A7%EF%BC%9A%E6%94%AF%E6%8C%81IE10%E4%BB%A5%E4%B8%8A%E5%8F%8A%E4%B8%BB%E6%B5%81%E6%B5%8F%E8%A7%88%E5%99%A8%EF%BC%8C%E6%94%AF%E6%8C%81%E6%89%8B%E6%9C%BA%E7%AB%AF%E4%B8%BB%E6%B5%81%E6%B5%8F%E8%A7%88%E5%99%A8%20%5B%E6%A3%80%E6%B5%8B%E5%9C%B0%E5%9D%80%5D(https%3A%2F%2Fkangax.github.io%2Fcompat-table%2Fes6%2F)%0A2.%20ES6%E4%BB%A3%E7%A0%81%E8%BD%AC%E6%88%90ES5%EF%BC%9A%0A%20%20%20%201.%20%E5%9C%A8%E7%BA%BF%E8%BD%AC%E6%8D%A2%0A%092.%20%E5%B7%A5%E7%A8%8B%E5%8C%96%EF%BC%88%E5%8C%85%E5%B7%A5%E5%85%B7%EF%BC%89%0A3.%20let%2Fconst%20%E5%A3%B0%E6%98%8E%E5%8F%98%E9%87%8F%0A%091.%20let%E5%91%BD%E4%BB%A4%E5%AD%98%E5%9C%A8%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F%20%2C%E5%8F%AA%E5%9C%A8%E5%A3%B0%E6%98%8E%E7%9A%84%E4%BB%A3%E7%A0%81%E5%9D%97%E5%86%85%E6%9C%89%E6%95%88%0A%092.%20let%E5%91%BD%E4%BB%A4%E4%B8%8D%E5%AD%98%E5%9C%A8%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%E7%9A%84%E9%97%AE%E9%A2%98%0A%093.%20let%E4%B8%8D%E5%85%81%E8%AE%B8%E5%9C%A8%E7%9B%B8%E5%90%8C%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%86%85%EF%BC%8C%E9%87%8D%E5%A4%8D%E5%A3%B0%E6%98%8E%E5%90%8C%E4%B8%80%E4%B8%AA%E5%8F%98%E9%87%8F%20%20%0A%20%20%20const%E5%A3%B0%E6%98%8E%E4%B8%80%E4%B8%AA%E5%8F%AA%E8%AF%BB%E7%9A%84%E5%B8%B8%E9%87%8F%E3%80%82%E4%B8%80%E6%97%A6%E5%A3%B0%E6%98%8E%EF%BC%8C%E5%B8%B8%E9%87%8F%E7%9A%84%E5%80%BC%E5%B0%B1%E4%B8%8D%E8%83%BD%E6%94%B9%E5%8F%98%0A%0A4.%20%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC%0A%20%20%20%201.%20%E6%95%B0%E7%BB%84%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC%20%20%20%20%2F%2F%E5%8C%B9%E9%85%8D%E6%A8%A1%E5%BC%8F%EF%BC%8C%E4%B8%80%E4%B8%80%E5%AF%B9%E5%BA%94%E7%9A%84%E5%85%B3%E7%B3%BB%E8%BF%9B%E8%A1%8C%E8%B5%8B%E5%80%BC%0A%09%09%09let%20%5Ba%2Cb%2C%5Bc%2C%20%2Ce%5D%5D%20%3D%20%5B3%2C5%2C%5B1%2C%20%2C%20%2C2%5D%5D%20%E5%87%A0%E4%B8%AA%E5%8F%98%E9%87%8F%EF%BC%9F4%E4%B8%AA%20%20%20%20%E5%8F%98%E9%87%8F%E6%AF%8F%E4%B8%AA%E5%80%BC%3D%EF%BC%9Fa%3D3%2Cb%3D5%2Cc%3D1%2Ce%3Dundefined%0A%092.%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC%20%20%20%2F%2F%E5%8C%B9%E9%85%8D%E6%A8%A1%E5%BC%8F%EF%BC%8C%E5%90%8C%E5%B1%9E%E6%80%A7%E5%90%8D%E7%9B%B8%E5%90%8C%E8%BF%9B%E8%A1%8C%E8%B5%8B%E5%80%BC%0A%09%09%09let%20%7Bx%2Cy%2Cz%3D3%7D%20%3D%20%7Bx%3A4%2Cy%3A5%7D%20%20%E5%87%A0%E4%B8%AA%E5%8F%98%E9%87%8F%EF%BC%9F3%E4%B8%AA%20%20%E5%8F%98%E9%87%8F%E6%AF%8F%E4%B8%AA%E5%80%BC%3D%EF%BC%9F%20x%3D4%2Cy%3D5%2Cz%3D3%0A5.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%89%A9%E5%B1%95%0A%09%091.%20%E6%A8%A1%E7%89%88%E5%AD%97%E7%AC%A6%E4%B8%B2%20%20%20%E5%8F%8D%E5%BC%95%E5%8F%B7%60%60%20%20%EF%BC%8C%E5%8F%8D%E5%BC%95%E5%8F%B7%E4%B8%AD%E7%9A%84%E5%86%85%E5%AE%B9%E8%A7%A3%E6%9E%90%E5%90%8E%E9%83%BD%E6%98%AF%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%8C%E5%A6%82%E6%9E%9C%E8%A6%81%E6%8F%92%E5%85%A5%E5%8F%98%E9%87%8F%2C%20%24%7B%E5%8F%98%E9%87%8F%E5%90%8D%7D%0A%09%09%0A6.%20%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%96%B0%E5%A2%9E%E6%96%B9%E6%B3%95%20%20%0A%20%20%20%201.%20repeat()%E6%96%B9%E6%B3%95%E8%BF%94%E5%9B%9E%E4%B8%80%E4%B8%AA%E6%96%B0%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%8C%E8%A1%A8%E7%A4%BA%E5%B0%86%E5%8E%9F%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%87%8D%E5%A4%8Dn%E6%AC%A1%E3%80%82%0A%20%20%20%20%20%20%20%20String.repeat(n)%20var%20s%20%3D%20'hello%2Cworld!'%20%20%20s.repeat(100)%20%20%20%20%20%20%E9%87%8D%E5%A4%8D100%E6%AC%A1%0A%20%20%20%202.%20%E5%A6%82%E6%9E%9C%E6%9F%90%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8D%E5%A4%9F%E6%8C%87%E5%AE%9A%E9%95%BF%E5%BA%A6%EF%BC%8C%E4%BC%9A%E5%9C%A8%E5%A4%B4%E9%83%A8%E6%88%96%E5%B0%BE%E9%83%A8%E8%A1%A5%E5%85%A8%E3%80%82padStart()%E7%94%A8%E4%BA%8E%E5%A4%B4%E9%83%A8%E8%A1%A5%E5%85%A8%EF%BC%8CpadEnd()%E7%94%A8%E4%BA%8E%E5%B0%BE%E9%83%A8%E8%A1%A5%E5%85%A8%20%20%0A%09%09String.padStart(%E9%95%BF%E5%BA%A6%EF%BC%8C'%E5%A1%AB%E5%85%85%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2')%20%20%2F%2F%E9%80%9A%E5%B8%B8%E7%94%A8%E4%BA%8E%E6%97%B6%E5%88%86%E7%A7%92%0A%09%09'x'.padStart(5%2C%20'ab')%20%2F%2F%20'ababx'%20%20%20%20%20%2F%2F5%20%20%2005%20%20var%20h%20%3D%2010%2C%20h.padStart(2%2C'0')%2F%2F010%2010%2001%0A%09%09'hello'.padEnd(10%2C'!')%2F%2Fhello!!!!!%0A%20%20%20%203.%20trimStart()%E6%B6%88%E9%99%A4%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%B4%E9%83%A8%E7%9A%84%E7%A9%BA%E6%A0%BC%EF%BC%8CtrimEnd()%E6%B6%88%E9%99%A4%E5%B0%BE%E9%83%A8%E7%9A%84%E7%A9%BA%E6%A0%BC%2C%E5%92%8Ctrim()%E7%94%A8%E6%B3%95%E5%9F%BA%E6%9C%AC%E4%B8%80%E8%87%B4%0A%0A7.%20%20%E6%AD%A3%E5%88%99%E7%9A%84%E6%89%A9%E5%B1%95%20%20%20%0A%09%091.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%AD%A3%E5%88%99%E6%96%B9%E6%B3%95%20%20match()%2Creplace()%2Csearch()%E5%92%8Csplit()%0A8.%20%E6%95%B0%E5%80%BC%E7%9A%84%E6%89%A9%E5%B1%95%20%20%0A%09%091.%0A9.%20%20%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A9%E5%B1%95%0A%20%20%20%201.%20%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E7%9A%84%E9%BB%98%E8%AE%A4%E5%80%BC%E8%AE%BE%E7%BD%AE%0A%20%20%20%202.%20rest%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%20%20%20%20%E5%87%BD%E6%95%B0%E7%9A%84%E5%BD%A2%E5%8F%82%E4%B8%AD...%E5%8F%98%E9%87%8F%E5%90%8D%20%3D%20%E5%87%BD%E6%95%B0%E4%B8%AD%E5%A4%9A%E4%BD%99%E7%9A%84%E5%8F%82%E6%95%B0%2C%E4%BC%9A%E6%8A%8A%E5%8F%82%E6%95%B0%E6%94%BE%E5%88%B0%E6%95%B0%E7%BB%84%E4%B8%AD%0A%20%20%20%203.%20%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89%0A%20%20%20%20%20%20%20%20%2B%20%E6%B2%A1%E6%9C%89%E5%8F%82%E6%95%B0%EF%BC%8C%E5%8F%AA%E6%9C%89%E8%BF%94%E5%9B%9E%E5%80%BC%E7%9A%84%20%20()%20%3D%3E%201%0A%09%09%20%2B%20%E6%B2%A1%E6%9C%89%E5%8F%82%E6%95%B0%EF%BC%8C%E6%B2%A1%E6%9C%89%E8%BF%94%E5%9B%9E%E5%80%BC%E7%9A%84%20%20()%20%3D%3E%20%7B%7D%0A%09%09%20%2B%20%E5%8F%AA%E6%9C%89%E4%B8%80%E4%B8%AA%E5%8F%82%E6%95%B0%EF%BC%8C%E5%8F%AA%E6%9C%89%E8%BF%94%E5%9B%9E%E5%80%BC%E7%9A%84%20a%20%3D%3E%20a%20%7C%7C%20(a)%20%3D%3E%20a%0A%20%20%20%20%20%20%20%20%2B%20%E5%8F%AA%E6%9C%89%E4%B8%80%E4%B8%AA%E5%8F%82%E6%95%B0%EF%BC%8C%E6%B2%A1%E6%9C%89%E8%BF%94%E5%9B%9E%E5%80%BC%E7%9A%84%20a%20%3D%3E%20%7B%7D%20%7C%7C%20(a)%20%3D%3E%20%7B%7D%0A%20%20%20%20%20%20%20%20%2B%20%E6%9C%89%E5%A4%9A%E4%B8%AA%E5%8F%82%E6%95%B0%EF%BC%8C%E5%8F%AA%E6%9C%89%E8%BF%94%E5%9B%9E%E5%80%BC%E7%9A%84%20%20(a%2Cb%2Cc)%20%3D%3E%20a%2Bb%2Bc%0A%20%20%20%20%20%20%20%20%2B%20%E6%9C%89%E5%A4%9A%E4%B8%AA%E5%8F%82%E6%95%B0%EF%BC%8C%E6%B2%A1%E6%9C%89%E8%BF%94%E5%9B%9E%E5%80%BC%E7%9A%84%20(a%2Cb%2Cc)%20%3D%3E%20%7B%7D%0A%09%E9%80%9A%E7%94%A8%E7%9A%84%E5%86%99%E6%B3%95%EF%BC%9A%20(%E5%8F%82%E6%95%B01%EF%BC%8C%E5%8F%82%E6%95%B02%EF%BC%8C)%20%3D%3E%20%7B%20%E4%BB%A3%E7%A0%81%E5%9D%97%20%7D%0A%09%E9%97%AE%E9%A2%98%EF%BC%9A1.New%20%E6%93%8D%E4%BD%9C%E7%AC%A6%E7%9A%84%E8%BF%87%E7%A8%8B%20%20%202.JSON.parse()%E5%92%8CJSON.stringify()%E7%9A%84%E7%90%86%E8%A7%A3%20%203.%20JS%E7%9A%84%E4%B8%A5%E6%A0%BC%E7%89%88%E6%9C%AC%E5%92%8C%E9%9D%9E%E4%B8%A5%E6%A0%BC%E7%89%88%E6%9C%AC%0A%20%20%20%204.%20%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%92%8C%E6%99%AE%E9%80%9A%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB%0A%09%09%09%09%3E1.%20%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%96%B0%E5%AF%B9%E8%B1%A1%EF%BC%8C%E5%B0%86%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84this%E6%8C%87%E5%90%91%E8%AF%A5%E5%AF%B9%E8%B1%A1%EF%BC%8C%E8%B5%8B%E4%BA%88%E8%AF%A5%E5%AF%B9%E8%B1%A1%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E5%B1%9E%E6%80%A7%E5%92%8C%E6%96%B9%E6%B3%95%EF%BC%8C%E8%BF%94%E5%9B%9E%E8%AF%A5%E6%96%B0%E5%AF%B9%E8%B1%A1%0A%09%09%09%09%3E2.%20JSON.parse()%20%E6%8A%8AJSON%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%88%90JSON%E5%AF%B9%E8%B1%A1%EF%BC%8CJSON.stringify()%E6%8A%8AJSON%E5%AF%B9%E8%B1%A1%E8%BD%AC%E6%88%90JSON%E5%AD%97%E7%AC%A6%E4%B8%B2%0A%09%09%09%09%3E4.%20%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E9%9C%80%E8%A6%81new%E6%9D%A5%E5%A3%B0%E6%98%8E%E6%96%B0%E5%AF%B9%E8%B1%A1%EF%BC%8C%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E6%B2%A1%E6%9C%89%E8%BF%94%E5%9B%9E%E5%80%BC%EF%BC%8C%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E5%B1%9E%E6%80%A7%E5%92%8C%E6%96%B9%E6%B3%95%E9%83%BD%E9%9C%80%E8%A6%81%E7%94%A8this%E6%8C%87%E5%90%91%EF%BC%8C%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E9%A6%96%E5%AD%97%E6%AF%8D%E5%A4%A7%E5%86%99%0A%09%09%09%09%3E3.%0A10.%20%E6%95%B0%E7%BB%84%E7%9A%84%E6%89%A9%E5%B1%95%0A%20%20%20%201.%20%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6...%20%20%20%20%5B%E6%8C%87%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6**%20%20%203**4%20%3D81%EF%BC%9F%20%20**%3D%20%20%20x%3D2%20%20%20%20y%20%3D%20%20x**3%5D%0A%20%20%20%20%20%20%20%20%20...%5B%5D%20%20%E5%B0%86%E4%B8%80%E4%B8%AA%E6%95%B0%E7%BB%84%E8%BD%AC%E4%B8%BA%E7%94%A8%E9%80%97%E5%8F%B7%E5%88%86%E9%9A%94%E7%9A%84%E5%8F%82%E6%95%B0%E5%BA%8F%E5%88%97%20%20%20%20...%5B2%2C3%2C4%5D%20%3D%3D%202%2C3%2C4%0A%20%20%20%202.%20%20Array.from()%20%E5%8F%AF%E4%BB%A5%E6%8A%8A%E7%B1%BB%E4%BC%BC%E6%95%B0%E7%BB%84%E7%9A%84%E5%AF%B9%E8%B1%A1%E6%88%96%E8%80%85DOM%E9%9B%86%E5%90%88%E8%BD%AC%E6%88%90%E7%9C%9F%E6%AD%A3%E7%9A%84%E6%95%B0%E7%BB%84%0A11.%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95%0A%20%20%20%201.%20%E7%AE%80%E4%BB%8B%E8%A1%A8%E7%A4%BA%E6%B3%95%0A%09%09%09%20%2F%2F%E5%AF%B9%E8%B1%A1%E5%BD%93%E4%B8%AD%EF%BC%8C%E5%B1%9E%E6%80%A7%E5%90%8D%E7%9A%84%E5%80%BC%E6%98%AF%E4%B8%80%E4%B8%AA%E5%8F%98%E9%87%8F%E6%97%B6%EF%BC%8C%E4%B8%94%E5%8F%98%E9%87%8F%E5%90%8D%E5%92%8C%E5%B1%9E%E6%80%A7%E5%90%8D%E7%9B%B8%E5%90%8C%EF%BC%8C%E5%8F%AF%E4%BB%A5%E7%AE%80%E5%86%99%E4%B8%80%E4%B8%AA%0A%09%09%09%20%2F%2F%E5%AF%B9%E8%B1%A1%E5%BD%93%E4%B8%AD%EF%BC%8C%E5%B1%9E%E6%80%A7%E7%9A%84%E5%80%BC%E6%98%AF%E4%B8%80%E4%B8%AA%E6%96%B9%E6%B3%95%E6%97%B6%EF%BC%8C%20%E5%8F%AF%E4%BB%A5%E7%AE%80%E5%86%99%E6%88%90%20%E5%B1%9E%E6%80%A7%E5%90%8D()%7B%7D%0A%20%20%20%202.%20%E5%B1%9E%E6%80%A7%E5%90%8D%E8%A1%A8%E8%BE%BE%E5%BC%8F%0A%09%09%09%09var%20key%20%3D%20'abc'%0A%09%09%09%09obj%3D%7B%5Bkey%5D%3A'hello'%7D%0A%093.%20%E5%87%BD%E6%95%B0%E7%9A%84name%E5%B1%9E%E6%80%A7%EF%BC%8C%E8%BF%94%E5%9B%9E%E5%87%BD%E6%95%B0%E5%90%8D%0A%094.%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6%0A%095.%20%E9%93%BE%E5%88%A4%E6%96%AD%E8%BF%90%E7%AE%97%E7%AC%A6%20%3F.%20%20%3F.%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%8C%E7%9B%B4%E6%8E%A5%E5%9C%A8%E9%93%BE%E5%BC%8F%E8%B0%83%E7%94%A8%E7%9A%84%E6%97%B6%E5%80%99%E5%88%A4%E6%96%AD%EF%BC%8C%E5%B7%A6%E4%BE%A7%E7%9A%84%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E4%B8%BAnull%E6%88%96undefined%E3%80%82%E5%A6%82%E6%9E%9C%E6%98%AF%E7%9A%84%EF%BC%8C%E5%B0%B1%E4%B8%8D%E5%86%8D%E5%BE%80%E4%B8%8B%E8%BF%90%E7%AE%97%EF%BC%8C%E8%80%8C%E6%98%AF%E8%BF%94%E5%9B%9Eundefined%0A%096.%20Null%20%E5%88%A4%E6%96%AD%E8%BF%90%E7%AE%97%E7%AC%A6%0A%09%09%09%09Null%20%E5%88%A4%E6%96%AD%E8%BF%90%E7%AE%97%E7%AC%A6%3F%3F%20%E5%AE%83%E7%9A%84%E8%A1%8C%E4%B8%BA%E7%B1%BB%E4%BC%BC%7C%7C%EF%BC%8C%E4%BD%86%E6%98%AF%E5%8F%AA%E6%9C%89%E8%BF%90%E7%AE%97%E7%AC%A6%E5%B7%A6%E4%BE%A7%E7%9A%84%E5%80%BC%E4%B8%BAnull%E6%88%96undefined%E6%97%B6%EF%BC%8C%E6%89%8D%E4%BC%9A%E8%BF%94%E5%9B%9E%E5%8F%B3%E4%BE%A7%E7%9A%84%E5%80%BC%E3%80%82%0A12.%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B0%E5%A2%9E%E6%96%B9%E6%B3%95%20(%E4%BA%86%E8%A7%A3%E6%96%B9%E6%B3%95%E5%90%8D%E5%AD%97)%0A13.%20Symbol%0A%20%20%20%20%2B%20%09%2F%2F1.%E5%87%A1%E6%98%AF%E5%B1%9E%E6%80%A7%E5%90%8D%E5%B1%9E%E4%BA%8E%20Symbol%20%E7%B1%BB%E5%9E%8B%EF%BC%8C%E5%B0%B1%E9%83%BD%E6%98%AF%E7%8B%AC%E4%B8%80%E6%97%A0%E4%BA%8C%E7%9A%84%EF%BC%8C%E5%8F%AF%E4%BB%A5%E4%BF%9D%E8%AF%81%E4%B8%8D%E4%BC%9A%E4%B8%8E%E5%85%B6%E4%BB%96%E5%B1%9E%E6%80%A7%E5%90%8D%E4%BA%A7%E7%94%9F%E5%86%B2%E7%AA%81%E3%80%82%0A%09%09%2F%2F2.%E5%8E%9F%E5%A7%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%9A%20%2F%2F%09undefined%2CNumber%2CString%2Cnull%2CBoolean%2CSymbol%0A%09%09%2F%2F3.%E5%A6%82%E6%9E%9C%20Symbol%20%E7%9A%84%E5%8F%82%E6%95%B0%E6%98%AF%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1%EF%BC%8C%E5%B0%B1%E4%BC%9A%E8%B0%83%E7%94%A8%E8%AF%A5%E5%AF%B9%E8%B1%A1%E7%9A%84toString%E6%96%B9%E6%B3%95%EF%BC%8C%E5%B0%86%E5%85%B6%E8%BD%AC%E4%B8%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%8C%E7%84%B6%E5%90%8E%E6%89%8D%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA%20Symbol%20%E5%80%BC%E3%80%82%E5%A6%82%E6%9E%9C%E6%B2%A1%E6%9C%89toString%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%8C%E4%BC%9A%E8%BF%94%E5%9B%9ESymbol(%5Bobject%20Object%5D)%0A%09%09for...in...%20%E5%BE%AA%E7%8E%AF%E9%81%8D%E5%8E%86%E5%AF%B9%E8%B1%A1%E6%97%B6%E5%8F%AA%E8%83%BD%E8%8E%B7%E5%8F%96%E5%AF%B9%E8%B1%A1%E4%B8%8B%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B1%9E%E6%80%A7%E5%90%8D%EF%BC%8C%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96Symbol%E7%B1%BB%E5%9E%8B%E5%80%BC%E7%9A%84%E5%B1%9E%E6%80%A7%E5%90%8D%0A%09%09Object.getOwnPropertySymbols(a)%2F%2F%E5%BE%97%E5%88%B0%E7%9A%84%E6%98%AFa%E5%AF%B9%E8%B1%A1%E4%B8%AD%E6%89%80%E6%9C%89%E7%9A%84Symbol%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%80%BC%E7%9A%84%E5%B1%9E%E6%80%A7%E5%90%8D%2C%E4%B8%8D%E5%8C%85%E5%90%AB%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%B1%9E%E6%80%A7%E5%90%8D%0A%09%09Reflect.ownKeys()%E6%96%B9%E6%B3%95%E5%8F%AF%E4%BB%A5%E8%BF%94%E5%9B%9E%E6%89%80%E6%9C%89%E7%B1%BB%E5%9E%8B%E7%9A%84%E9%94%AE%E5%90%8D%EF%BC%8C%E5%8C%85%E6%8B%AC%E5%B8%B8%E8%A7%84%E9%94%AE%E5%90%8D%E5%92%8C%20Symbol%20%E9%94%AE%E5%90%8D%E3%80%82%0A%09%09Symbol.for()%E4%B8%8ESymbol()%E8%BF%99%E4%B8%A4%E7%A7%8D%E5%86%99%E6%B3%95%EF%BC%8C%E9%83%BD%E4%BC%9A%E7%94%9F%E6%88%90%E6%96%B0%E7%9A%84%20Symbol%E3%80%82%E5%AE%83%E4%BB%AC%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%EF%BC%8C%E5%89%8D%E8%80%85%E4%BC%9A%E8%A2%AB%E7%99%BB%E8%AE%B0%E5%9C%A8%E5%85%A8%E5%B1%80%E7%8E%AF%E5%A2%83%E4%B8%AD%E4%BE%9B%E6%90%9C%E7%B4%A2%EF%BC%8C%E5%90%8E%E8%80%85%E4%B8%8D%E4%BC%9A%E3%80%82Symbol.for()%E4%B8%8D%E4%BC%9A%E6%AF%8F%E6%AC%A1%E8%B0%83%E7%94%A8%E5%B0%B1%E8%BF%94%E5%9B%9E%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%20Symbol%20%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%80%BC%EF%BC%8C%E8%80%8C%E6%98%AF%E4%BC%9A%E5%85%88%E6%A3%80%E6%9F%A5%E7%BB%99%E5%AE%9A%E7%9A%84key%E6%98%AF%E5%90%A6%E5%B7%B2%E7%BB%8F%E5%AD%98%E5%9C%A8%EF%BC%8C%E5%A6%82%E6%9E%9C%E4%B8%8D%E5%AD%98%E5%9C%A8%E6%89%8D%E4%BC%9A%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%80%BC%E3%80%82%E6%AF%94%E5%A6%82%EF%BC%8C%E5%A6%82%E6%9E%9C%E4%BD%A0%E8%B0%83%E7%94%A8Symbol.for(%22cat%22)30%20%E6%AC%A1%EF%BC%8C%E6%AF%8F%E6%AC%A1%E9%83%BD%E4%BC%9A%E8%BF%94%E5%9B%9E%E5%90%8C%E4%B8%80%E4%B8%AA%20Symbol%20%E5%80%BC%EF%BC%8C%E4%BD%86%E6%98%AF%E8%B0%83%E7%94%A8Symbol(%22cat%22)30%20%E6%AC%A1%EF%BC%8C%E4%BC%9A%E8%BF%94%E5%9B%9E%2030%20%E4%B8%AA%E4%B8%8D%E5%90%8C%E7%9A%84%20Symbol%20%E5%80%BC%E3%80%82%0A%09%09Symbol.keyFor()%E6%96%B9%E6%B3%95%E8%BF%94%E5%9B%9E%E4%B8%80%E4%B8%AA%E5%B7%B2%E7%99%BB%E8%AE%B0%E7%9A%84%20Symbol%20%E7%B1%BB%E5%9E%8B%E5%80%BC%E7%9A%84key%0A%0A%09%2B%20%E4%BD%9C%E4%B8%BA%E5%B1%9E%E6%80%A7%E5%90%8D%E7%9A%84Symbol%E5%80%BC%20%20obj%5BSymbol()%5D%20%3D%20'%E5%80%BC'%0A%0A14.%20Set%20%E5%92%8C%20Map%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%0A%20%20%20%20%2B%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%20Set%E3%80%82%E5%AE%83%E7%B1%BB%E4%BC%BC%E4%BA%8E%E6%95%B0%E7%BB%84%EF%BC%8C%E4%BD%86%E6%98%AF%E6%88%90%E5%91%98%E7%9A%84%E5%80%BC%E9%83%BD%E6%98%AF%E5%94%AF%E4%B8%80%E7%9A%84%EF%BC%8C%E6%B2%A1%E6%9C%89%E9%87%8D%E5%A4%8D%E7%9A%84%E5%80%BC%E3%80%82%0A%09%09%2F%2F%E6%95%B0%E7%BB%84%E7%9A%84%E5%8E%BB%E9%87%8D%20%20%5B...new%20Set(arr)%5D%20%20%E8%B0%83%E7%94%A8set%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%8C%E4%BB%A5%E8%A6%81%E5%8E%BB%E9%87%8D%E7%9A%84%E6%95%B0%E7%BB%84arr%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%EF%BC%8C%E5%86%8D%E6%89%A7%E8%A1%8C%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6%E8%BD%AC%E6%88%90%E5%8F%82%E6%95%B0%E5%BA%8F%E5%88%97%EF%BC%8C%E6%9C%80%E5%90%8E%E5%86%8D%E5%8A%A0%E4%B8%80%E4%B8%AA%5B%5D%0A%09%09%2F%2F%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8E%BB%E9%87%8D%20%20%5B...new%20Set(str)%5D.join('')%20%E8%B0%83%E7%94%A8set%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%8C%E4%BB%A5%E8%A6%81%E5%8E%BB%E9%87%8D%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2str%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%EF%BC%8C%E5%86%8D%E6%89%A7%E8%A1%8C%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%8C%E8%BD%AC%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%82%E6%95%B0%E5%BA%8F%E5%88%97%EF%BC%8C%E5%8A%A0%E4%B8%8A%5B%5D%E5%90%8E%E5%8F%98%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%95%B0%E7%BB%84%EF%BC%8C%E5%86%8D%E8%B0%83%E7%94%A8%E6%95%B0%E7%BB%84%E7%9A%84join()%E6%96%B9%E6%B3%95%2C%E4%BB%A5%E7%A9%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BF%9B%E8%A1%8C%E8%BF%9E%E7%BB%93%0A%09%09Set.prototype.add(value)%EF%BC%9A%E6%B7%BB%E5%8A%A0%E6%9F%90%E4%B8%AA%E5%80%BC%EF%BC%8C%E8%BF%94%E5%9B%9E%20Set%20%E7%BB%93%E6%9E%84%E6%9C%AC%E8%BA%AB%E3%80%82%0A%09%09Set.prototype.delete(value)%EF%BC%9A%E5%88%A0%E9%99%A4%E6%9F%90%E4%B8%AA%E5%80%BC%EF%BC%8C%E8%BF%94%E5%9B%9E%E4%B8%80%E4%B8%AA%E5%B8%83%E5%B0%94%E5%80%BC%EF%BC%8C%E8%A1%A8%E7%A4%BA%E5%88%A0%E9%99%A4%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F%E3%80%82%0A%09%09Set.prototype.has(value)%EF%BC%9A%E8%BF%94%E5%9B%9E%E4%B8%80%E4%B8%AA%E5%B8%83%E5%B0%94%E5%80%BC%EF%BC%8C%E8%A1%A8%E7%A4%BA%E8%AF%A5%E5%80%BC%E6%98%AF%E5%90%A6%E4%B8%BASet%E7%9A%84%E6%88%90%E5%91%98%E3%80%82%0A%09%09Set.prototype.clear()%EF%BC%9A%E6%B8%85%E9%99%A4%E6%89%80%E6%9C%89%E6%88%90%E5%91%98%EF%BC%8C%E6%B2%A1%E6%9C%89%E8%BF%94%E5%9B%9E%E5%80%BC%E3%80%82%0A%0A%20%20%20%20%2B%20Map%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%82%E5%AE%83%E7%B1%BB%E4%BC%BC%E4%BA%8E%E5%AF%B9%E8%B1%A1%EF%BC%8C%E4%B9%9F%E6%98%AF%E9%94%AE%E5%80%BC%E5%AF%B9%E7%9A%84%E9%9B%86%E5%90%88%EF%BC%8C%E4%BD%86%E6%98%AF%E2%80%9C%E9%94%AE%E2%80%9D%E7%9A%84%E8%8C%83%E5%9B%B4%E4%B8%8D%E9%99%90%E4%BA%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%8C%E5%90%84%E7%A7%8D%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%80%BC%EF%BC%88%E5%8C%85%E6%8B%AC%E5%AF%B9%E8%B1%A1%EF%BC%89%E9%83%BD%E5%8F%AF%E4%BB%A5%E5%BD%93%E4%BD%9C%E9%94%AE%E3%80%82%0A%09%09Map.prototype.set(key%2C%20value)%20%20set%E6%96%B9%E6%B3%95%E8%AE%BE%E7%BD%AE%E9%94%AE%E5%90%8Dkey%E5%AF%B9%E5%BA%94%E7%9A%84%E9%94%AE%E5%80%BC%E4%B8%BAvalue%EF%BC%8C%E7%84%B6%E5%90%8E%E8%BF%94%E5%9B%9E%E6%95%B4%E4%B8%AA%20Map%20%E7%BB%93%E6%9E%84%E3%80%82%E5%A6%82%E6%9E%9Ckey%E5%B7%B2%E7%BB%8F%E6%9C%89%E5%80%BC%EF%BC%8C%E5%88%99%E9%94%AE%E5%80%BC%E4%BC%9A%E8%A2%AB%E6%9B%B4%E6%96%B0%EF%BC%8C%E5%90%A6%E5%88%99%E5%B0%B1%E6%96%B0%E7%94%9F%E6%88%90%E8%AF%A5%E9%94%AE%E3%80%82%0A%09%09Map.prototype.get(key)%20%20%20get%E6%96%B9%E6%B3%95%E8%AF%BB%E5%8F%96key%E5%AF%B9%E5%BA%94%E7%9A%84%E9%94%AE%E5%80%BC%EF%BC%8C%E5%A6%82%E6%9E%9C%E6%89%BE%E4%B8%8D%E5%88%B0key%EF%BC%8C%E8%BF%94%E5%9B%9Eundefined%E3%80%82%0A%09%09Map.prototype.has(key)%20%20has%E6%96%B9%E6%B3%95%E8%BF%94%E5%9B%9E%E4%B8%80%E4%B8%AA%E5%B8%83%E5%B0%94%E5%80%BC%EF%BC%8C%E8%A1%A8%E7%A4%BA%E6%9F%90%E4%B8%AA%E9%94%AE%E6%98%AF%E5%90%A6%E5%9C%A8%E5%BD%93%E5%89%8D%20Map%20%E5%AF%B9%E8%B1%A1%E4%B9%8B%E4%B8%AD%E3%80%82%0A%09%09Map.prototype.delete(key)%20%20delete%E6%96%B9%E6%B3%95%E5%88%A0%E9%99%A4%E6%9F%90%E4%B8%AA%E9%94%AE%EF%BC%8C%E8%BF%94%E5%9B%9Etrue%E3%80%82%E5%A6%82%E6%9E%9C%E5%88%A0%E9%99%A4%E5%A4%B1%E8%B4%A5%EF%BC%8C%E8%BF%94%E5%9B%9Efalse%E3%80%82%0A%09%09Map.prototype.clear()%20%20clear%E6%96%B9%E6%B3%95%E6%B8%85%E9%99%A4%E6%89%80%E6%9C%89%E6%88%90%E5%91%98%EF%BC%8C%E6%B2%A1%E6%9C%89%E8%BF%94%E5%9B%9E%E5%80%BC%E3%80%82%0A%0A15.%20Proxy%20%E4%BB%A3%E7%90%86%EF%BC%88%E6%8B%A6%E6%88%AA%E5%99%A8%EF%BC%89%0A%09%09%09%2F%2F1.%20%E5%A6%82%E6%9E%9C%E8%A6%81%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86%EF%BC%8C%E7%94%9F%E6%88%90Proxy%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%20%E7%9A%84%E5%AE%9E%E4%BE%8B%E5%8C%96%E5%AF%B9%E8%B1%A1%EF%BC%8CProxy%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E6%8E%A5%E5%8F%97%E4%B8%A4%E4%B8%AA%E5%8F%82%E6%95%B0(%E7%9B%AE%E6%A0%87%E5%AF%B9%E8%B1%A1%EF%BC%8C%E6%8B%A6%E6%88%AA)%0A%09%09%09%2F%2F2.%20%E5%A6%82%E6%9E%9C%E6%8B%A6%E6%88%AA%E6%B2%A1%E6%9C%89%EF%BC%8C%E9%82%A3%E5%AE%9E%E4%BE%8B%E5%8C%96%E5%AF%B9%E8%B1%A1%E5%B0%B1%E7%AD%89%E5%90%8C%E4%BA%8E%E4%BD%A0%E7%9A%84%E7%9B%AE%E6%A0%87%E5%AF%B9%E8%B1%A1%0A%09%09%09%2F%2F3.%20%E6%8B%A6%E6%88%AA%E5%99%A8handler%E4%B8%AD%E7%9A%84%E9%85%8D%E7%BD%AE%E9%A1%B9%20%20set%2Cget%2C%E7%AD%89%E6%96%B9%E6%B3%95%0A%09%09%09%2F%2F4.%20%E6%8B%A6%E6%88%AA%E5%99%A8handler%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%8C%E6%8E%A5%E5%8F%97%E4%B8%A4%E4%B8%AA%E5%8F%82%E6%95%B0%EF%BC%88%E7%9B%AE%E6%A0%87%E5%AF%B9%E8%B1%A1%EF%BC%8C%EF%BC%89%0A%0A16.%20Promise%20%E5%AF%B9%E8%B1%A1%0A%09%09%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C%0A%09%09%2F%2F%E5%88%9B%E5%BB%BA%09Promise%E5%AF%B9%E8%B1%A1%2C%20%20%E5%8F%82%E6%95%B0%3Aresolve%2C%20reject%20%20%20.then()%20%E6%96%B9%E6%B3%95%E5%86%85%E7%9A%84%E5%8F%82%E6%95%B0%E4%BD%9C%E7%94%A8%20%20%20.catch()%E6%96%B9%E6%B3%95%E5%86%85%E7%9A%84%E5%8F%82%E6%95%B0%E4%BD%9C%E7%94%A8%20%20%20.all()%E6%96%B9%E6%B3%95%E7%9A%84%E4%BD%BF%E7%94%A8%0A%20%20%20%20%2B%20%E5%88%9B%E5%BB%BA%20Promise%E5%AF%B9%E8%B1%A1%EF%BC%8C%E4%BB%A5%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%EF%BC%8C%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E4%B8%AD%EF%BC%8C%E6%9C%89%E4%B8%A4%E4%B8%AA%E5%8F%82%E6%95%B0%20%20resolve%EF%BC%8Creject%EF%BC%8C%20resolve%E4%BB%A3%E8%A1%A8%E7%9A%84%E6%98%AF%E6%88%90%E5%8A%9F%E6%97%B6%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%8Creject%20%E4%BB%A3%E8%A1%A8%E7%9A%84%E6%98%AF%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%96%B9%E6%B3%95%0A%20%20%20%20%2B%20%E5%88%9B%E5%BB%BA%E7%9A%84%E5%AF%B9%E8%B1%A1%E4%BC%9A%E9%93%BE%E5%BC%8F%E8%B0%83%E7%94%A8.then().catch()%E6%96%B9%E6%B3%95%EF%BC%8C%20then%E6%96%B9%E6%B3%95%E5%8F%AF%E4%BB%A5%E6%8E%A5%E5%8F%97%E4%B8%A4%E4%B8%AA%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E3%80%82%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E6%98%AFPromise%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%8A%B6%E6%80%81%E5%8F%98%E4%B8%BAresolved%E6%97%B6%E8%B0%83%E7%94%A8%EF%BC%8C%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E6%98%AFPromise%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%8A%B6%E6%80%81%E5%8F%98%E4%B8%BArejected%E6%97%B6%E8%B0%83%E7%94%A8%E3%80%82%E5%85%B6%E4%B8%AD%EF%BC%8C%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%87%BD%E6%95%B0%E6%98%AF%E5%8F%AF%E9%80%89%E7%9A%84%EF%BC%8C%E4%B8%8D%E4%B8%80%E5%AE%9A%E8%A6%81%E6%8F%90%E4%BE%9B%E3%80%82catch%E6%96%B9%E6%B3%95%20%20%E7%94%A8%E4%BA%8E%E6%8C%87%E5%AE%9A%E5%8F%91%E7%94%9F%E9%94%99%E8%AF%AF%E6%97%B6%E7%9A%84%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E3%80%82%E4%B9%9F%E5%B0%B1%E6%98%AFreject()%E6%89%80%E5%AF%B9%E5%BA%94%E7%9A%84%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%0A%20%20%20%20%2B%20Promise.all().then().catch()%20%2C%E5%85%B6%E4%B8%ADthen%E6%96%B9%E6%B3%95%E4%B8%AD%E4%BB%A3%E8%A1%A8%E6%98%AF%E8%AF%B7%E6%B1%82%E6%88%90%E5%8A%9F%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86%E5%90%88%EF%BC%8C%E5%81%87%E5%A6%82%E6%9C%89%E4%B8%80%E6%9D%A1%E8%AF%B7%E6%B1%82%E5%A4%B1%E8%B4%A5%E5%B0%B1%E4%BC%9A%E8%BF%94%E5%9B%9Ecatch%EF%BC%8C%20catch%E6%96%B9%E6%B3%95%E6%98%AF%E8%AF%B7%E6%B1%82%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AF%0A17.%20Module%20%E6%A8%A1%E5%9D%97%0A%09%2B%20module%3A%20%E8%BE%93%E5%87%BA%E5%92%8C%E8%BE%93%E5%85%A5%0A%09%20%09%E6%A8%A1%E5%9D%97%E5%8A%9F%E8%83%BD%E4%B8%BB%E8%A6%81%E7%94%B1%E4%B8%A4%E4%B8%AA%E5%91%BD%E4%BB%A4%E6%9E%84%E6%88%90%EF%BC%9Aexport%E5%92%8Cimport%E3%80%82%0A%09%20%09export%E5%91%BD%E4%BB%A4%E7%94%A8%E4%BA%8E%E8%A7%84%E5%AE%9A%E6%A8%A1%E5%9D%97%E7%9A%84%E5%AF%B9%E5%A4%96%E6%8E%A5%E5%8F%A3%EF%BC%8Cimport%E5%91%BD%E4%BB%A4%E7%94%A8%E4%BA%8E%E8%BE%93%E5%85%A5%E5%85%B6%E4%BB%96%E6%A8%A1%E5%9D%97%E6%8F%90%E4%BE%9B%E7%9A%84%E5%8A%9F%E8%83%BD%E3%80%82%0A%09%20%09%E8%AF%AD%E6%B3%95%EF%BC%9A%20a.js%2F%20%20export%20%7Ba%2Cb%2Cc%7D%20%E8%BE%93%E5%87%BAa%EF%BC%8Cb%EF%BC%8Cc%E4%B8%89%E4%B8%AA%E5%8F%98%E9%87%8F%0A%09%20%09%09%09%09b.js%2F%20%20import%20%7Ba%2Cb%2Cc%7D%20from%20'a.js'%20%E8%BE%93%E5%85%A5a%EF%BC%8Cb%EF%BC%8Cc%E4%B8%89%E4%B8%AA%E5%8F%98%E9%87%8F%0A%09%09%09export%20default%20%E5%8F%98%E9%87%8F%EF%BC%8C%E8%BE%93%E5%87%BA%EF%BC%8C%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E5%8F%AA%E8%83%BD%E6%9C%89%E4%B8%80%E4%B8%AA%E9%BB%98%E8%AE%A4%E8%BE%93%E5%87%BA%0A%09%09%09import%20%E5%8F%98%E9%87%8F%20%09form%20'a.js'%20%E8%BE%93%E5%85%A5%E6%97%B6%E5%8F%98%E9%87%8F%E4%B8%8D%E5%8A%A0%7B%7D%0A%09%09%2F%2F%E4%B8%BA%E5%90%8E%E8%BE%B9%E7%9A%84%E6%A1%86%E6%9E%B6%E6%9C%8D%E5%8A%A1%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A</center></span>
+</div></body></html> 

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		function fn() {
+			var a = 1
+			console.log(a)
+		}
+		fn()
+		// console.log(a) 函数具有隔离作用域的问题
+			if (true) {
+				var a = 100
+				var a = 200
+				let x = 'hello';
+				//let x = 'world' // Identifier 'x' has already been declared
+				console.log(x);
+				{
+					console.log(x);
+				}
+			} 
+			let x = 200
+			{	
+				let x = 300
+			}
+
+			// {} 表示代码块， 用let和const声明的变量只会在当前代码块内有效，并且在当前代码块内不能重复赋值
+			console.log(x); // x is not defined 
+			for (let i = 0; i < 10; i++) {
+				console.log(i);
+			}
+			console.log(i);
+
+			for (var i = 0; i < 10; i++) {
+				console.log(i);
+			}
+			// console.log(i);
+			// for (let n = 0; n < array.length; n++) {
+			// 	// const element = array[n];
+				
+			// }
+			// let 声明变量， const声明常量，而且使用const声明的常量必须立即赋值, 切不能再修改
+			{
+				let a = 1
+				const b = 2
+				let a1
+				const b1 = 20
+				// const app = new Vue()
+			}
+			// 不存在变量提升的问题
+
+			{
+				console.log(b); // undefined
+				var b = 100
+				// console.log(c); // Cannot access 'c' before initialization
+				let c = 'hello'
+				console.log(d); // Cannot access 'd' before initialization
+				const d = new Date()
+			}
+			// let/const/var的区别？
+			// 内存泄漏？
+			// 垃圾回收机制？
+			// 闭包？
+	</script>
+</body>
+
+</html>
