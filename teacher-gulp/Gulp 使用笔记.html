@@ -1,0 +1,119 @@
+<html>
+<head>
+  <title>Evernote Export</title>
+  <basefont face="微软雅黑" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="YXBJ Windows/604484 (zh-CN, DDL); Windows/10.0.0 (Win64); EDAMVersion=V2;"/>
+  <meta name="content-class" content="yinxiang.markdown"/>
+  <style>
+    body, td {
+      font-family: 微软雅黑;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name="511"/>
+
+<div><span><div style="font-size: 14px; margin: 0; padding: 0; width: 100%;"><h1 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 41px; border-bottom: 3px double #999; color: #000; margin-top: 14px;"><strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">Gulp 使用笔记</strong></h1>
+<hr style="line-height: 160%; box-sizing: content-box; border-top: 1px solid #eee; margin: 16px 0;"/>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">- 全局安装Gulp  <code style="line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; color: #c1788b; padding: 4px 4px 2px 0; letter-spacing: -.3px;">npm install --global gulp</code> 可通过npm官网去搜索安装 <a href="https://www.npmjs.com/package/npm" style="line-height: 160%; box-sizing: content-box; text-decoration: underline; color: #5286bc;">npm官网地址</a><br/>
+- 安装淘宝镜像 <code style="line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; color: #c1788b; padding: 4px 4px 2px 0; letter-spacing: -.3px;">npm install -g cnpm -registry=https://registry.npm.taobao.org</code>  <br/>
+- npm init 初始化一个本地开发环境 (一直回车，确定)<br/>
+- 在本地开发环境中安装 gulp<br/>
+    <code style="line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; color: #c1788b; padding: 4px 4px 2px 0; letter-spacing: -.3px;">npm install --save-dev gulp</code><br/>
+- 输入 <code style="line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; color: #c1788b; padding: 4px 4px 2px 0; letter-spacing: -.3px;">gulp -v</code>  查看版本号，两个版本号都出现，表示成功<br/>
+- 在项目根目录下创建一个名为 <code style="line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; color: #c1788b; padding: 4px 4px 2px 0; letter-spacing: -.3px;">gulpfile.js</code> 的文件:   所有的自动化任务或插件任务都在这个文件内执行<br/>
+- 插件安装  <br/>
+    1. 百度搜索想要的插件，去npm官网搜索安装  <br/>
+       <code style="line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; color: #c1788b; padding: 4px 4px 2px 0; letter-spacing: -.3px;">npm install --save-dev 插件名</code><br/>
+    2. 在gulpfile.js中使用 require()方法引入<br/>
+    3. ES6转成ES5插件  <br/>
+       <code style="line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; color: #c1788b; padding: 4px 4px 2px 0; letter-spacing: -.3px;">npm install --save-dev gulp-babel@7 babel-core babel-preset-es2015</code><br/>
+    4. JS 压缩的插件  <br/>
+      <code style="line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; color: #c1788b; padding: 4px 4px 2px 0; letter-spacing: -.3px;">npm install --save-dev gulp-uglify</code><br/>
+    5. 压缩图片的插件  <br/>
+      <code style="line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; color: #c1788b; padding: 4px 4px 2px 0; letter-spacing: -.3px;">npm install --save-dev gulp-imagemin</code></p>
+<hr style="line-height: 160%; box-sizing: content-box; border-top: 1px solid #eee; margin: 16px 0;"/>
+<hr style="line-height: 160%; box-sizing: content-box; border-top: 1px solid #eee; margin: 16px 0;"/>
+<h2 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 34px; border-bottom: 1px solid #dbdbdb; color: #333;">代码使用</h2>
+<pre style="line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; margin: 2px 0 8px; background-color: #f5f7f8;"><code style="display: block; overflow-x: auto; background: #1e1e1e; line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; letter-spacing: -.3px; padding: 18px; color: #f4f4f4; white-space: pre-wrap;">    // gulp 自动化任务的执行文件
+    const gulp = require('gulp');// CommonJS的语法，导入一个模块,放最上边，所有的插件都依赖gulp
+    const stylus = require('gulp-stylus');//引入 stylus转css的插件
+    const cleanCSS = require('gulp-clean-css');// 压缩css
+    const autoprefixer = require('gulp-autoprefixer');// css加前缀的方法
+    const htmlmin = require('gulp-htmlmin'); //压缩html
+    const babel = require('gulp-babel'); //ES6转ES5的插件方法
+    const uglify = require('gulp-uglify'); //压缩JS的插件方法
+    const imagemin = require('gulp-imagemin'); //压缩图片的插件方法
+    const connect = require('gulp-connect');//livereload 热更新，浏览器自动刷新插件
+    var del = require('del');//删除文件的方法
+    //创建一个删除 dist文件夹的任务
+    gulp.task('clean',function (cb) {
+      del('./dist')
+      cb()
+    })
+    //编写一个任务： stylus的预处理转成css语法
+    gulp.task('stylus',function (cb) {
+      // 我要把stylus的语法转成css语法
+      return gulp.src('./src/stylus/*')  
+          .pipe(stylus()) //管道流,在这个管道内需要 引入的变量方法 stylus转化css
+          .pipe(autoprefixer()) //css加前缀
+          .pipe(cleanCSS())//压缩css
+          .pipe(gulp.dest('./dist/css/')) //转化后的css输出到哪个地方
+          .pipe(connect.reload())
+          /* return gulp.src('./src/stylus/*.styl').pipe(stylus()).pipe(autoprefixer()).pipe(cleanCSS()).pipe(gulp.dest('./dist/css/')) */
+      cb()
+    })
+    //编写一个任务：压缩html的任务
+    gulp.task('htmlmin',function (cb) {
+      return gulp.src('./src/*.html')  
+          .pipe(htmlmin({
+            removeEmptyAttributes: true,//移除标签上空属性
+            collapseBooleanAttributes: true, //移除属性上的布尔值的
+            removeComments: true, //移除注释的
+            collapseWhitespace: true //压缩html
+          })) //管道流,压缩html插件的变量名方法
+          .pipe(gulp.dest('./dist/')) //转化后的css输出到哪个地方
+          .pipe(connect.reload())
+      cb()
+    })
+    //编写一个任务：ES6转ES5
+    gulp.task('babel',function (cb) {
+      return gulp.src('./src/js/*.js')
+          .pipe(babel({
+            presets: ['es2015']
+          }))
+          .pipe(uglify())
+          .pipe(gulp.dest('./dist/js/'))
+          .pipe(connect.reload())
+      cb()
+    })
+    //编写一个压缩图片的任务
+    gulp.task('imgmin',function (cb) {
+      return gulp.src('./src/img/*.{png,jpg,jpeg,svg,gif}')
+          .pipe(imagemin())
+          .pipe(gulp.dest('./dist/img/'))
+          .pipe(connect.reload())
+      cb()
+    })
+    //编写一个开启浏览服务的任务
+    gulp.task('connect',function () {
+      connect.server({
+        livereload: true,
+        port: 8888
+      });
+    })
+    //监听任务： 监听你html、css、js、img发生改变时，需要做什么？
+    gulp.task('watch',function(cb){
+      gulp.watch('./src/*.html',gulp.series('htmlmin'))
+      gulp.watch('./src/stylus/*',gulp.series('stylus'))
+      gulp.watch('./src/js/*.js',gulp.series('babel'))
+      gulp.watch('./src/img/*',gulp.series('imgmin'))
+      cb()
+    })
+    //创建一个默认的任务，按顺序执行所有的任务
+    gulp.task('default', gulp.series('clean','htmlmin','stylus','babel','imgmin','watch','connect') ,cb =&gt; {cb()});
+</code></pre>
+</div><center style="display:none !important;visibility:collapse !important;height:0 !important;white-space:nowrap;width:100%;overflow:hidden">%0A%23%20%C2%A0**Gulp%C2%A0%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0**%0A------%0A-%C2%A0%E5%85%A8%E5%B1%80%E5%AE%89%E8%A3%85Gulp%C2%A0%C2%A0%60npm%C2%A0install%C2%A0--global%C2%A0gulp%60%C2%A0%E5%8F%AF%E9%80%9A%E8%BF%87npm%E5%AE%98%E7%BD%91%E5%8E%BB%E6%90%9C%E7%B4%A2%E5%AE%89%E8%A3%85%C2%A0%5Bnpm%E5%AE%98%E7%BD%91%E5%9C%B0%E5%9D%80%5D(https%3A%2F%2Fwww.npmjs.com%2Fpackage%2Fnpm)%0A-%C2%A0%E5%AE%89%E8%A3%85%E6%B7%98%E5%AE%9D%E9%95%9C%E5%83%8F%20%60%0Anpm%20install%20-g%20cnpm%20--registry%3Dhttps%3A%2F%2Fregistry.npm.taobao.org%60%C2%A0%C2%A0%0A-%C2%A0npm%C2%A0init%C2%A0%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%80%E4%B8%AA%E6%9C%AC%E5%9C%B0%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%C2%A0(%E4%B8%80%E7%9B%B4%E5%9B%9E%E8%BD%A6%EF%BC%8C%E7%A1%AE%E5%AE%9A)%0A-%C2%A0%E5%9C%A8%E6%9C%AC%E5%9C%B0%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%AE%89%E8%A3%85%C2%A0gulp%0A%C2%A0%C2%A0%C2%A0%C2%A0%60npm%C2%A0install%C2%A0--save-dev%C2%A0gulp%60%0A-%C2%A0%E8%BE%93%E5%85%A5%C2%A0%60gulp%C2%A0-v%60%C2%A0%C2%A0%E6%9F%A5%E7%9C%8B%E7%89%88%E6%9C%AC%E5%8F%B7%EF%BC%8C%E4%B8%A4%E4%B8%AA%E7%89%88%E6%9C%AC%E5%8F%B7%E9%83%BD%E5%87%BA%E7%8E%B0%EF%BC%8C%E8%A1%A8%E7%A4%BA%E6%88%90%E5%8A%9F%0A-%C2%A0%E5%9C%A8%E9%A1%B9%E7%9B%AE%E6%A0%B9%E7%9B%AE%E5%BD%95%E4%B8%8B%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%90%8D%E4%B8%BA%C2%A0%60gulpfile.js%60%C2%A0%E7%9A%84%E6%96%87%E4%BB%B6%3A%C2%A0%C2%A0%20%E6%89%80%E6%9C%89%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E4%BB%BB%E5%8A%A1%E6%88%96%E6%8F%92%E4%BB%B6%E4%BB%BB%E5%8A%A1%E9%83%BD%E5%9C%A8%E8%BF%99%E4%B8%AA%E6%96%87%E4%BB%B6%E5%86%85%E6%89%A7%E8%A1%8C%0A-%C2%A0%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%C2%A0%C2%A0%0A%C2%A0%C2%A0%C2%A0%C2%A01.%C2%A0%E7%99%BE%E5%BA%A6%E6%90%9C%E7%B4%A2%E6%83%B3%E8%A6%81%E7%9A%84%E6%8F%92%E4%BB%B6%EF%BC%8C%E5%8E%BBnpm%E5%AE%98%E7%BD%91%E6%90%9C%E7%B4%A2%E5%AE%89%E8%A3%85%C2%A0%C2%A0%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%60npm%C2%A0install%C2%A0--save-dev%C2%A0%E6%8F%92%E4%BB%B6%E5%90%8D%60%0A%C2%A0%C2%A0%C2%A0%C2%A02.%C2%A0%E5%9C%A8gulpfile.js%E4%B8%AD%E4%BD%BF%E7%94%A8%C2%A0require()%E6%96%B9%E6%B3%95%E5%BC%95%E5%85%A5%0A%C2%A0%C2%A0%C2%A0%C2%A03.%C2%A0ES6%E8%BD%AC%E6%88%90ES5%E6%8F%92%E4%BB%B6%C2%A0%C2%A0%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%60npm%C2%A0install%C2%A0--save-dev%C2%A0gulp-babel%407%C2%A0babel-core%C2%A0babel-preset-es2015%60%0A%C2%A0%C2%A0%C2%A0%C2%A04.%C2%A0JS%C2%A0%E5%8E%8B%E7%BC%A9%E7%9A%84%E6%8F%92%E4%BB%B6%C2%A0%C2%A0%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%60npm%C2%A0install%C2%A0--save-dev%C2%A0gulp-uglify%60%0A%C2%A0%C2%A0%C2%A0%C2%A05.%C2%A0%E5%8E%8B%E7%BC%A9%E5%9B%BE%E7%89%87%E7%9A%84%E6%8F%92%E4%BB%B6%C2%A0%C2%A0%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%60npm%C2%A0install%C2%A0--save-dev%C2%A0gulp-imagemin%60%0A%20%20%20%20%20%20%0A------%0A------%0A%23%23%20%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%0A%60%60%60%0A%C2%A0%C2%A0%C2%A0%C2%A0%2F%2F%C2%A0gulp%C2%A0%E8%87%AA%E5%8A%A8%E5%8C%96%E4%BB%BB%E5%8A%A1%E7%9A%84%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%0A%C2%A0%C2%A0%C2%A0%C2%A0const%C2%A0gulp%C2%A0%3D%C2%A0require('gulp')%3B%2F%2F%C2%A0CommonJS%E7%9A%84%E8%AF%AD%E6%B3%95%EF%BC%8C%E5%AF%BC%E5%85%A5%E4%B8%80%E4%B8%AA%E6%A8%A1%E5%9D%97%2C%E6%94%BE%E6%9C%80%E4%B8%8A%E8%BE%B9%EF%BC%8C%E6%89%80%E6%9C%89%E7%9A%84%E6%8F%92%E4%BB%B6%E9%83%BD%E4%BE%9D%E8%B5%96gulp%0A%C2%A0%C2%A0%C2%A0%C2%A0const%C2%A0stylus%C2%A0%3D%C2%A0require('gulp-stylus')%3B%2F%2F%E5%BC%95%E5%85%A5%C2%A0stylus%E8%BD%ACcss%E7%9A%84%E6%8F%92%E4%BB%B6%0A%C2%A0%C2%A0%C2%A0%C2%A0const%C2%A0cleanCSS%C2%A0%3D%C2%A0require('gulp-clean-css')%3B%2F%2F%C2%A0%E5%8E%8B%E7%BC%A9css%0A%C2%A0%C2%A0%C2%A0%C2%A0const%C2%A0autoprefixer%C2%A0%3D%C2%A0require('gulp-autoprefixer')%3B%2F%2F%C2%A0css%E5%8A%A0%E5%89%8D%E7%BC%80%E7%9A%84%E6%96%B9%E6%B3%95%0A%C2%A0%C2%A0%C2%A0%C2%A0const%C2%A0htmlmin%C2%A0%3D%C2%A0require('gulp-htmlmin')%3B%C2%A0%2F%2F%E5%8E%8B%E7%BC%A9html%0A%C2%A0%C2%A0%C2%A0%C2%A0const%C2%A0babel%C2%A0%3D%C2%A0require('gulp-babel')%3B%C2%A0%2F%2FES6%E8%BD%ACES5%E7%9A%84%E6%8F%92%E4%BB%B6%E6%96%B9%E6%B3%95%0A%C2%A0%C2%A0%C2%A0%C2%A0const%C2%A0uglify%C2%A0%3D%C2%A0require('gulp-uglify')%3B%C2%A0%2F%2F%E5%8E%8B%E7%BC%A9JS%E7%9A%84%E6%8F%92%E4%BB%B6%E6%96%B9%E6%B3%95%0A%C2%A0%C2%A0%C2%A0%C2%A0const%C2%A0imagemin%C2%A0%3D%C2%A0require('gulp-imagemin')%3B%C2%A0%2F%2F%E5%8E%8B%E7%BC%A9%E5%9B%BE%E7%89%87%E7%9A%84%E6%8F%92%E4%BB%B6%E6%96%B9%E6%B3%95%0A%C2%A0%C2%A0%C2%A0%C2%A0const%C2%A0connect%C2%A0%3D%C2%A0require('gulp-connect')%3B%2F%2Flivereload%C2%A0%E7%83%AD%E6%9B%B4%E6%96%B0%EF%BC%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E8%87%AA%E5%8A%A8%E5%88%B7%E6%96%B0%E6%8F%92%E4%BB%B6%0A%C2%A0%C2%A0%C2%A0%C2%A0var%C2%A0del%C2%A0%3D%C2%A0require('del')%3B%2F%2F%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E7%9A%84%E6%96%B9%E6%B3%95%0A%C2%A0%C2%A0%C2%A0%C2%A0%2F%2F%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%88%A0%E9%99%A4%C2%A0dist%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E4%BB%BB%E5%8A%A1%0A%C2%A0%C2%A0%C2%A0%C2%A0gulp.task('clean'%2Cfunction%C2%A0(cb)%C2%A0%7B%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0del('.%2Fdist')%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0cb()%0A%C2%A0%C2%A0%C2%A0%C2%A0%7D)%0A%C2%A0%C2%A0%C2%A0%C2%A0%2F%2F%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA%E4%BB%BB%E5%8A%A1%EF%BC%9A%C2%A0stylus%E7%9A%84%E9%A2%84%E5%A4%84%E7%90%86%E8%BD%AC%E6%88%90css%E8%AF%AD%E6%B3%95%0A%C2%A0%C2%A0%C2%A0%C2%A0gulp.task('stylus'%2Cfunction%C2%A0(cb)%C2%A0%7B%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%2F%2F%C2%A0%E6%88%91%E8%A6%81%E6%8A%8Astylus%E7%9A%84%E8%AF%AD%E6%B3%95%E8%BD%AC%E6%88%90css%E8%AF%AD%E6%B3%95%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0return%C2%A0gulp.src('.%2Fsrc%2Fstylus%2F*')%C2%A0%C2%A0%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0.pipe(stylus())%C2%A0%2F%2F%E7%AE%A1%E9%81%93%E6%B5%81%2C%E5%9C%A8%E8%BF%99%E4%B8%AA%E7%AE%A1%E9%81%93%E5%86%85%E9%9C%80%E8%A6%81%C2%A0%E5%BC%95%E5%85%A5%E7%9A%84%E5%8F%98%E9%87%8F%E6%96%B9%E6%B3%95%C2%A0stylus%E8%BD%AC%E5%8C%96css%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0.pipe(autoprefixer())%C2%A0%2F%2Fcss%E5%8A%A0%E5%89%8D%E7%BC%80%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0.pipe(cleanCSS())%2F%2F%E5%8E%8B%E7%BC%A9css%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0.pipe(gulp.dest('.%2Fdist%2Fcss%2F'))%C2%A0%2F%2F%E8%BD%AC%E5%8C%96%E5%90%8E%E7%9A%84css%E8%BE%93%E5%87%BA%E5%88%B0%E5%93%AA%E4%B8%AA%E5%9C%B0%E6%96%B9%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0.pipe(connect.reload())%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%2F*%C2%A0return%C2%A0gulp.src('.%2Fsrc%2Fstylus%2F*.styl').pipe(stylus()).pipe(autoprefixer()).pipe(cleanCSS()).pipe(gulp.dest('.%2Fdist%2Fcss%2F'))%C2%A0*%2F%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0cb()%0A%C2%A0%C2%A0%C2%A0%C2%A0%7D)%0A%C2%A0%C2%A0%C2%A0%C2%A0%2F%2F%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA%E4%BB%BB%E5%8A%A1%EF%BC%9A%E5%8E%8B%E7%BC%A9html%E7%9A%84%E4%BB%BB%E5%8A%A1%0A%C2%A0%C2%A0%C2%A0%C2%A0gulp.task('htmlmin'%2Cfunction%C2%A0(cb)%C2%A0%7B%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0return%C2%A0gulp.src('.%2Fsrc%2F*.html')%C2%A0%C2%A0%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0.pipe(htmlmin(%7B%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0removeEmptyAttributes%3A%C2%A0true%2C%2F%2F%E7%A7%BB%E9%99%A4%E6%A0%87%E7%AD%BE%E4%B8%8A%E7%A9%BA%E5%B1%9E%E6%80%A7%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0collapseBooleanAttributes%3A%C2%A0true%2C%C2%A0%2F%2F%E7%A7%BB%E9%99%A4%E5%B1%9E%E6%80%A7%E4%B8%8A%E7%9A%84%E5%B8%83%E5%B0%94%E5%80%BC%E7%9A%84%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0removeComments%3A%C2%A0true%2C%C2%A0%2F%2F%E7%A7%BB%E9%99%A4%E6%B3%A8%E9%87%8A%E7%9A%84%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0collapseWhitespace%3A%C2%A0true%C2%A0%2F%2F%E5%8E%8B%E7%BC%A9html%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%7D))%C2%A0%2F%2F%E7%AE%A1%E9%81%93%E6%B5%81%2C%E5%8E%8B%E7%BC%A9html%E6%8F%92%E4%BB%B6%E7%9A%84%E5%8F%98%E9%87%8F%E5%90%8D%E6%96%B9%E6%B3%95%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0.pipe(gulp.dest('.%2Fdist%2F'))%C2%A0%2F%2F%E8%BD%AC%E5%8C%96%E5%90%8E%E7%9A%84css%E8%BE%93%E5%87%BA%E5%88%B0%E5%93%AA%E4%B8%AA%E5%9C%B0%E6%96%B9%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0.pipe(connect.reload())%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0cb()%0A%C2%A0%C2%A0%C2%A0%C2%A0%7D)%0A%C2%A0%C2%A0%C2%A0%C2%A0%2F%2F%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA%E4%BB%BB%E5%8A%A1%EF%BC%9AES6%E8%BD%ACES5%0A%C2%A0%C2%A0%C2%A0%C2%A0gulp.task('babel'%2Cfunction%C2%A0(cb)%C2%A0%7B%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0return%C2%A0gulp.src('.%2Fsrc%2Fjs%2F*.js')%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0.pipe(babel(%7B%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0presets%3A%C2%A0%5B'es2015'%5D%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%7D))%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0.pipe(uglify())%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0.pipe(gulp.dest('.%2Fdist%2Fjs%2F'))%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0.pipe(connect.reload())%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0cb()%0A%C2%A0%C2%A0%C2%A0%C2%A0%7D)%0A%C2%A0%C2%A0%C2%A0%C2%A0%2F%2F%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA%E5%8E%8B%E7%BC%A9%E5%9B%BE%E7%89%87%E7%9A%84%E4%BB%BB%E5%8A%A1%0A%C2%A0%C2%A0%C2%A0%C2%A0gulp.task('imgmin'%2Cfunction%C2%A0(cb)%C2%A0%7B%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0return%C2%A0gulp.src('.%2Fsrc%2Fimg%2F*.%7Bpng%2Cjpg%2Cjpeg%2Csvg%2Cgif%7D')%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0.pipe(imagemin())%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0.pipe(gulp.dest('.%2Fdist%2Fimg%2F'))%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0.pipe(connect.reload())%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0cb()%0A%C2%A0%C2%A0%C2%A0%C2%A0%7D)%0A%C2%A0%C2%A0%C2%A0%C2%A0%2F%2F%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA%E5%BC%80%E5%90%AF%E6%B5%8F%E8%A7%88%E6%9C%8D%E5%8A%A1%E7%9A%84%E4%BB%BB%E5%8A%A1%0A%C2%A0%C2%A0%C2%A0%C2%A0gulp.task('connect'%2Cfunction%C2%A0()%C2%A0%7B%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0connect.server(%7B%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0livereload%3A%C2%A0true%2C%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0port%3A%C2%A08888%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%7D)%3B%0A%C2%A0%C2%A0%C2%A0%C2%A0%7D)%0A%C2%A0%C2%A0%C2%A0%C2%A0%2F%2F%E7%9B%91%E5%90%AC%E4%BB%BB%E5%8A%A1%EF%BC%9A%C2%A0%E7%9B%91%E5%90%AC%E4%BD%A0html%E3%80%81css%E3%80%81js%E3%80%81img%E5%8F%91%E7%94%9F%E6%94%B9%E5%8F%98%E6%97%B6%EF%BC%8C%E9%9C%80%E8%A6%81%E5%81%9A%E4%BB%80%E4%B9%88%EF%BC%9F%0A%C2%A0%C2%A0%C2%A0%C2%A0gulp.task('watch'%2Cfunction(cb)%7B%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0gulp.watch('.%2Fsrc%2F*.html'%2Cgulp.series('htmlmin'))%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0gulp.watch('.%2Fsrc%2Fstylus%2F*'%2Cgulp.series('stylus'))%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0gulp.watch('.%2Fsrc%2Fjs%2F*.js'%2Cgulp.series('babel'))%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0gulp.watch('.%2Fsrc%2Fimg%2F*'%2Cgulp.series('imgmin'))%0A%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0cb()%0A%C2%A0%C2%A0%C2%A0%C2%A0%7D)%0A%C2%A0%C2%A0%C2%A0%C2%A0%2F%2F%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E9%BB%98%E8%AE%A4%E7%9A%84%E4%BB%BB%E5%8A%A1%EF%BC%8C%E6%8C%89%E9%A1%BA%E5%BA%8F%E6%89%A7%E8%A1%8C%E6%89%80%E6%9C%89%E7%9A%84%E4%BB%BB%E5%8A%A1%0A%C2%A0%C2%A0%C2%A0%C2%A0gulp.task('default'%2C%C2%A0gulp.series('clean'%2C'htmlmin'%2C'stylus'%2C'babel'%2C'imgmin'%2C'watch'%2C'connect')%C2%A0%2Ccb%C2%A0%3D%3E%C2%A0%7Bcb()%7D)%3B%0A%20%20%20%60%60%60%0A%0A</center></span>
+</div></body></html> 
