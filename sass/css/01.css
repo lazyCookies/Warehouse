@@ -1,0 +1,10 @@
+@charset "UTF-8";
+/* 我是作者 */
+/*!我是强调注释作者*/
+body {
+  background-color: red;
+}
+
+div {
+  background-color: green;
+}
