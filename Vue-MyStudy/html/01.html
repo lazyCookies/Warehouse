@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>插值语法</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+    <!-- box这个盒子，被称为Vue模板，为什么被称为Vue模板呢？ -->
+    <!-- 因为Vue会根据box类名选择并获取到这个元素，然后扫描其中是否有{{}}这个符号 -->
+    <!-- 如果扫描到了，那么就会将{{}}替换成data中的name，最后用获取到的box盒子替换掉原来的box盒子 -->
+    <div class="box">
+        <h1>我是：{{name}}</h1>
+        <!-- {{}}中并非只能写单纯的data中的数据 -->
+        <!-- {{}}中可以写js中的表达式，而之所以{{}}中写name就可以显示出数据，是因为{{}}中的数据会自动读取到data中所有的属性 -->
+    </div>
+    <script>
+        // 当我们第一次用liveServer运行html代码时，会发现控制台报了一个ico什么的错误
+        // 这是因为liveServer开启的本地服务器没有找到页面标题图标，把ico图片放在根目录下即可
+        Vue.config.productionTip = false;   //关闭Vue的开发提示
+        // 注意！！！一个Vue实例化对象只能对应一个DOM容器，反之亦然
+        // 真是开发中只有一个Vue实例，会配合着组件使用
+        new Vue({
+            el:'.box',
+            data:{
+                name:'王礼壮',
+            }
+        })
+    </script>
+</body>
+</html>

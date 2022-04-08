@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>el和data的写法</title>
+    <script src="../lib/vue.js"></script>
+</head>
+
+<body>
+    <div class="box">{{}}</div>
+    <script>
+        Vue.config.productionTip = false;
+        var vm = new Vue({
+           //el:'.box',     //el的第一种写法
+        //    data:{        //data的第一种写法
+        //        name:'王礼壮'
+        //    },
+        data(){     //data的第二种写法
+            console.log(this)   //这里的this指向的时Vue实例对象
+            return {
+                name:'王礼壮'   //如果在这种方法中写数据，需要用return返回
+            }
+        },
+        // data: function () {  //上面的data()是此方法的简化写法
+        //     console.log(this)   
+        //     return {
+        //         name:'王礼壮'   
+        //     }
+        // },
+           methods:{}
+        });
+        vm.$mount('.box')   //el的第二种写法
+        console.log(vm)     //$mount方法再vm的原型对象中
+
+        // data()  data: function ()这{}  种写法现在可能比较麻烦但是以后写组件会用到
+        // 注意！！！用函数写法写 data 一定不要用箭头函数
+        // 因为箭头函数的this指向的是window
+    </script>
+</body>
+
+</html>

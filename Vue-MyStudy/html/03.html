@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据绑定</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+    <div class="box">
+        单向数据绑定：
+        <input type="text" name="" v-bind:value="name" id="">
+        <br>
+        双向数据绑定：
+        <input type="text" name="" v-model:value="val" id="">
+        <!-- v-model:可以简写为 -->
+        <input type="text" v-model="val">
+    </div>
+    <script>
+        Vue.config.productionTip = false;
+        new Vue({
+            el:'.box',
+            data:{
+                name:'王礼壮',
+                val:123456,
+            }
+        })
+        // 单向数据绑定：通过v-bind:  可以将data中的数据添加到input的value中
+        // 但是改变input的value值不能改变data中的数据
+
+        // 双向数据绑定：通过v-model:  可以将data中的数据添加到input的value中
+        // input中的value(或者说输入框中的值)改变，data中的数据也会改变
+        // 注意！！！v-model:只能作用于有value属性的标签上,其他标签均不可以！！！
+    </script>
+</body>
+</html>

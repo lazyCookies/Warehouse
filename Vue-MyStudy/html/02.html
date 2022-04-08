@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>指令语法</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+    <div class="box">
+        <h1>{{name}}</h1>
+        <h1>{{room.name}}</h1>
+        <a v-bind:href="url">点我进百度1</a>
+        <a :href="url">点我进百度2</a>
+
+    </div>
+    <script>
+        Vue.config.productionTip = false;
+        new Vue({
+            el:'.box',
+            data:{
+                name:'王礼壮',
+                url:'https://www.baidu.com',
+                room:{
+                    name:'王礼壮'
+                }
+            }
+        })
+        // 当我们在页面中插入内容时，可以直接用{{}}将内容插入进去，这叫做插值语法
+        // 但是当我们需要指定标签属性值(如a标签中的href属性)的时候，插值语法就不适用了
+        // 我们可以在属性前添加  v-bind:  然后再往属性值中写入数据就可以完成给标签属性添加值的效果
+        // v-bind:  可以简写为 :
+        //v-bind:  可以给任何标签的任何属性添加属性值
+
+        // 注意！！！指令语法可以解析标签，而非只能解析标签属性！！！
+
+        // data中的属性名重复了怎么办？
+        // 我们可以再嵌套一个对象
+    </script>
+</body>
+</html>
