@@ -102,7 +102,7 @@ $list2: (10px 20px) (30px 40px);
 // >=
 // <=
 // ==
-// !==
+// !=
 
 // 注意一下：
 // $a: 1 == 1px;  //true
@@ -137,3 +137,71 @@ $colors: rgba(255,0,0,0.75) + rgba(0,255,0,0.75);
 // 1.*  /   %
 // 2.+    -
 // 3.>   <   >=   <=
+
+// 属性继承     @extend
+// .div{
+//     background-color: green;
+//     color: red;
+//     font-size: 50px;
+// }
+// .div .text{
+//     @extend .div;
+// }
+
+// 属性继承：占位符选择器       %
+// 占位符选择器可以顶峰以不被编译的css样式，需要用到此样式时，@extend后跟变量名即可
+// %yellow{
+//     background-color: yellow;
+// }
+// .text{
+//     @extend %yellow;
+// }
+
+// if()     三目运算符
+// 语法：if(条件表达式 , true , false)
+// p{
+//     color: if(1 + 1 == 2 ,skyblue,#fff);
+// }
+
+// 条件语句：@if  @else if   @else
+// p{
+//     @if 1+1==2 {
+//         color: yellow;
+//     } @else{
+//         color: #fff;
+//     }
+// }
+
+// $numif: 1;
+// p{
+//     @if $numif == 1 {
+//         color: yellow;
+//     } @else if $numif == 2{
+//         color:red;
+//     } @else{
+//         color: #fff;
+//     }
+// }
+
+// @for循环
+// to 不包含结束值
+// @for $i from 1 to 3 {
+//     .item-#{$i}{
+//         font-size: $i * 15px;
+//     }
+// }
+// // from 包含结束值
+// @for $i from 1 through 3 {
+//     .item-#{$i}{
+//         font-size: $i * 15px;
+//     }
+// }
+
+// @while循环
+$i: 1;
+@while $i <= 3 {
+    .item-#{$i}{
+        font-size: $i * 15px;
+    }
+    $i: $i + 1;
+}

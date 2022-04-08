@@ -8,3 +8,15 @@ body {
 div {
   background-color: green;
 }
+
+.item-1 {
+  font-size: 15px;
+}
+
+.item-2 {
+  font-size: 30px;
+}
+
+.item-3 {
+  font-size: 45px;
+}
