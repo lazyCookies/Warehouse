@@ -1,22 +1,19 @@
 @charset "UTF-8";
 /* 我是作者 */
 /*!我是强调注释作者*/
-body {
-  background-color: red;
-}
+.div span {
+  color: rgba(255, 255, 0, 0.75); }
 
-div {
-  background-color: green;
-}
+.div .text {
+  font-size: 50px; }
+  .div .text p {
+    font-weight: 900; }
 
-.item-1 {
-  font-size: 15px;
-}
+.text p {
+  color: blue; }
 
-.item-2 {
-  font-size: 30px;
-}
+.text:hover {
+  background-color: rgba(255, 255, 0, 0.75); }
 
-.item-3 {
-  font-size: 45px;
-}
+p:hover {
+  background-color: skyblue; }

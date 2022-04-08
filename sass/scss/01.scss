@@ -1,17 +1,16 @@
 // $color:red;
 // body{
 //     background-color: $color;
-// } 
+// }
 /* 我是作者 */
 //我是作者
 /*!我是强调注释作者*/
-
 
 // sass中的作用域
 // sass中的作用域类似于ES6中的作用域
 
 //此时的$color就是在全局作用域
-$color:red; 
+$color: red;
 // body{
 //     // 我们可以在块级作用域中引用他
 //     background-color: $color;
@@ -25,43 +24,48 @@ $color:red;
 
 // 那么如何让其他作用于可以也使用块级作用域中的变量呢？
 // 我们可以在块级作用域变量后添加英文!global
-body{
-    $color1:green !global;
-    background-color: $color;
-}
-div{
-    // 此时再用变量$color1就不会报错了
-    background-color: $color1;
-}
+// body {
+//   $color1: green !global;
+//   //   background-color: $color;
+// }
+// div {
+//   // 此时再用变量$color1就不会报错了
+//   background-color: $color1;
+// }
 
 // sass中的数据类型
-    // 数字：1，13，2.3，10px,4a
-    // 注意!!!4a虽然会被sass当成一个数字，但是他是没有意义的，在sass中使用会报错
-    // 单位会和数字当作一个整体，可以进行算术运算
+// 数字：1，13，2.3，10px,4a
+// 注意!!!4a虽然会被sass当成一个数字，但是他是没有意义的，在sass中使用会报错
+// 单位会和数字当作一个整体，可以进行算术运算
 
-    // 字符串：str,'stsr',"staa"
-    // 当只有一个字符串时，可以不用加引号，如果有多个字符串必须加引号
-    
-    // 颜色：blue,#f1f1f1,rgba(255,0,0,0.8),rgba(#f1f1f1,0.8)
-    // rgba()括号中前面三位表示颜色，最后一位表示透明度
-    
-    // 布尔值：false，true
-    // 只有自身为false或者null时才会返回false，其他均会返回true
-    
-    // 空值：null
-    
-    // 数组(list): 20px, 1rem 0.5rem 3rem 1.5rem,blue, dotted
-    // maps,相当于js中的对象：(key:value,key:value,key:value),只不过是用的()
+// 字符串：str,'stsr',"staa"
+// 当只有一个字符串时，可以不用加引号，如果有多个字符串必须加引号
+
+// 颜色：blue,#f1f1f1,rgba(255,0,0,0.8),rgba(#f1f1f1,0.8)
+// rgba()括号中前面三位表示颜色，最后一位表示透明度
+
+// 布尔值：false，true
+// 只有自身为false或者null时才会返回false，其他均会返回true
+
+// 空值：null
+
+// 数组(list): 20px, 1rem 0.5rem 3rem 1.5rem,blue, dotted
+// maps,相当于js中的对象：(key:value,key:value,key:value),只不过是用的()
 
 // 数组扩展方法
 // 此时数组中有4个元素
 $list1: 10px 20px 30px 40px;
 // 此时数组中有4个元素
-$list1: 10px,20px,30px,40px;
+$list1: 10px,
+20px,
+30px,
+40px;
 // 此时数组中有两个元素
-$list2: 10px 20px,30px 40px;
+$list2: 10px 20px,
+30px 40px;
 // 此时数组中有两个元素
-$list2: (10px 20px),(30px 40px);
+$list2: (10px 20px),
+(30px 40px);
 // 此时数组中有两个元素
 $list2: (10px 20px) (30px 40px);
 
@@ -78,8 +82,6 @@ $list2: (10px 20px) (30px 40px);
 // body{
 //     width: $num;
 // }
-
-
 
 // / （除）
 // sass进行除法运算时不会四舍五入，但是会精确到小数点后5位
@@ -102,7 +104,7 @@ $list2: (10px 20px) (30px 40px);
 // >=
 // <=
 // ==
-// !=
+// !==
 
 // 注意一下：
 // $a: 1 == 1px;  //true
@@ -118,14 +120,14 @@ $list2: (10px 20px) (30px 40px);
 // not  非
 
 // 颜色值的运算
-$rgb: #010203 + #040506;
+$rgb: #010203+#040506;
 // 此时颜色值会分为三个值来运算
-// 01 + 04  
+// 01 + 04
 // 02 + 05
 // 03 + 06
 // 乘法同理
 
-$colors: rgba(255,0,0,0.75) + rgba(0,255,0,0.75);
+$colors: rgba(255, 0, 0, 0.75)+rgba(0, 255, 0, 0.75);
 // 运算此种类型的颜色值时，最后一位的透明度必须一样，否则会报错
 // body{
 //     background-color: $rgb;
@@ -137,6 +139,74 @@ $colors: rgba(255,0,0,0.75) + rgba(0,255,0,0.75);
 // 1.*  /   %
 // 2.+    -
 // 3.>   <   >=   <=
+
+// 在我们写html时，很多情况下都是盒子套盒子，但是在这样的情况下，我们用css给指定元素添加样式时就很麻烦，需要逐层选择这个元素
+// 然后给其添加样式。同时，如果要给这个大盒子里的另一个元素添加样式，我们就又需要再重新选择一遍，就很麻烦
+// 然而，在sass中我们不需要这么麻烦的去选择，在sass中可以可以这样写
+$fw: 900;
+$fz: 50px;
+
+.div {
+  span {
+    color: $colors;
+  }
+
+  .text {
+    font-size: $fz;
+
+    p {
+      font-weight: $fw;
+    }
+  }
+}
+
+// 插值语法
+// 我们可以把一些经常重复出现的css属性或选择器或者一些比较长的属性等等，写入一个字符串中，用的时候写出这个变量即可
+$f: ".text";
+$colorp: blue;
+
+#{$f} p {
+  color: $colorp;
+}
+
+// 当前对象选择器，或者叫this，总之他表示的是当前对象
+#{$f} {
+  &:hover {
+    background-color: $colors;
+  }
+}
+
+// 默认值   !default
+$con: skyblue !default;
+
+// $con: black;
+p {
+  &:hover {
+    //   此时鼠标移到p标签上背景变成黑色
+    // 如果172行没有声明$con，那么鼠标移入p标签背景会变成天蓝色
+    background-color: $con;
+  }
+}
+
+// 意思就是：如果你没有声明这个变量，那么他会按照添加了!default的$con的属性来，如果声明了，那么就按照新声明的来
+// 如果新声明的变量值为null，那么也会按照默认的来
+
+// @import   引入文件
+// @import不能引入css文件，或者文件名以http://开头，文件名不能是url()
+// @import可以同时引入多个文件，不过需要用逗号(,)分隔  如：
+// @import '01.html','01.min.css';
+// 如果一个文件的文件名是唯一的，那么引入的时候可以不用写后缀名
+
+// 媒体查询,和css差不多
+// @media
+
+// 属性继承，@extend
+// .box{
+//     color: green;
+// }
+// .box1{
+//     @extend .div;
+// }
 
 // 属性继承     @extend
 // .div{
