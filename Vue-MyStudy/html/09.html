@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<!-- Vue给我们准备了几个常用键盘名 -->
+<!-- 键盘名最好用小写 -->
+<!-- 
+    1.enter     回车
+    2.esc       Esc
+    3.space     空格
+    4.up        上箭头
+    5.down      下箭头
+    6.left      左箭头
+    7.right     右箭头
+    8.tab       Tab
+    9.delete    删除
+ -->
+ <!-- 
+     当然你也可以自己选一个按键来使用它，但是需要打出来案件的名字
+    且像大写键盘CapLock这样由两个单词组成的按键名的按键，
+    你需要将这两个单词拆开并且中间用 - 连接才行
+-->
+<!-- 
+    几个和@keyup不太搭配的按键(或者说某些系统修饰键)：
+        Alt
+        Shift
+        Win
+        Ctrl
+ -->
+
+ <!-- 
+     同时，我们不但可以用按键本身的名字来表示按键，
+     我们还可以给按键起别名，如：
+        Vue.config.KeyCodes.自定义键名 = 键盘码
+  -->
+<body>
+    <div class="box">
+        <input type="text" @keyup.enter="show" name="" id="">
+        <br>
+        <br>
+        <!-- 键盘事件可以链式调用，如下面的ctrl+y -->
+        <input type="password" name="" @keyup.ctrl.y="show" id="">
+    </div>
+    <script>
+    Vue.config.productionTip = false;
+        let vm = new Vue({
+            el: ".box",
+            methods: {
+                show(event){
+                    console.log(event.target.value)
+                }
+            }
+        });
+        // 注意！！！键盘事件无法传参
+    </script>
+</body>
+
+</html>

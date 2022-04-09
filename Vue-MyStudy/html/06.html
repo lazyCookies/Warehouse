@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obiect.defineProperty和数据代理</title>
+    <script src="../lib/vue.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        {{name}},
+        {{age}}
+    </div>
+    <script>
+        Vue.config.productionTip = false;
+        let num = 25;
+        let obj = {
+            name:'王礼壮',
+            school:'河南艺术职业学院'
+        }
+        // Object.defineProperty()方法，可以给对象添加属性和值
+        // Object.defineProperty()方法给对象添加的属性不能直接删除和修改
+        // 也不能被遍历
+        // for (const key in obj) {
+        //     console.log(key)
+        // }
+
+        // 
+        Object.defineProperty(obj,'age',{
+            // value:22,
+
+            // value的值可以是一个函数，但是此函数必须有返回值
+            // 当有人读取age时，get函数就会被调用，get的返回值就是age的值
+            get () {
+                return num
+            },
+
+            // set函数可以检测被修改的属性，且会返回被修改的值
+            // 但是通过Object.defineProperty()方法不能直接被修改
+            // 我们可以通过给set函数设置变量的值为形参这样的方法来修改age的值
+            set(value){
+                console.log('age的值被修改了，修改的值为：',value)
+                num = value
+            },
+
+            // enumerable属性默认为false，改为true则age可以遍历
+            //enumerable:true,
+
+            // writable属性默认为false，改为true则age可以被修改,如果age的值是一个函数，且返回值是一个变量，则直接需该变量就可修改age的值
+            // 如果age的值是通过一个函数返回的，则不能使用writable方法
+            // writable:true,
+
+            // enumerable属性默认为false，改为true则age可以被删除
+            //configurable:true,
+        })
+        console.log(obj);
+        num = 27
+        // 数据代理
+        // 通过修改obj2中的值来读写obj1中的值
+        obj1 = {
+            num:22
+        }
+        obj2 = {
+            num:22,
+            str:'123154'
+        }
+        Object.defineProperty(obj2,'num',{
+            get(){
+                return obj1.num
+            },
+            set(value){
+                obj1.num = value
+            }
+        })
+        // Vue中的数据代理
+        let vm = new Vue({
+            el:'.box',
+            data:{
+                name:'a王礼壮',
+                age:33
+            }
+        })
+        // vm中有一个属性叫_data，这个属性中的值就是data属性中的值
+        // 当我们修改data中的值时，vm会检测到data中数据的修改，从而通过Object.defineProperty中的get方法让_data中的数据发生改变
+        // 进而改变页面上的数据
+
+        // 而当我们用控制台修改vm中_data中的值时，_data也会通过Object.defineProperty中的set方法修改data中的值
+    </script>
+</body>
+
+</html>

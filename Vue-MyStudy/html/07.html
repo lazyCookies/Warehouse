@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件处理</title>
+    <script src="../lib/vue.js"></script>
+</head>
+
+<body>
+    <!-- 事件处理绑定方法v-on:click="" -->
+    <!-- v-on:click=""可简写为@click="" -->
+    <div  class="box">
+        <button v-on:click="show">点我执行show</button>
+        <button @click="show2(123)">点我执行show2(传参)</button>
+
+        <!-- 如果不传参，默认参数就是event -->
+        <button @click="show3">点我执行show3,参数为event</button>
+
+        <!-- 如果有多个参数并且想要获取到event参数，那么可以用占位符$event -->
+        <button @click="show4(9999,$event)">点我执行show4,参数为9999,第二个参数为event</button>
+    </div>
+    <script>
+Vue.config.productionTip = false;
+        let vm = new Vue({
+            el: ".box",
+            data: {
+                name:'王礼壮'
+            },
+            methods: {
+                show(){
+                    alert('我是show')
+
+                    // methods中的函数不能是箭头函数，因为箭头函数的this指向的是windows
+                    // methods中函数中的普通函数this指向的是vm实例化对象
+                    console.log(this)
+                },
+                show2(value){
+                    alert('传入的参数 = ' + value)
+                },
+                show3(event){
+                    console.log(event)
+                },
+                show4(a,event){
+                    console.log(a + ' ',event)
+                }
+            }
+        });
+        // methods中的函数最终都会在vm上
+    </script>
+</body>
+
+</html>

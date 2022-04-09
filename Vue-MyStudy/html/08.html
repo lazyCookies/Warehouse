@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件修饰符</title>
+    <script src="../lib/vue.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        div{
+            margin-top: 20px;
+            height: 50px;
+        }
+        .box{
+            height: 500px;
+            background-color: pink;
+        }
+        .box1{
+            background-color: skyblue;
+        }
+        .box2{
+            background-color: red;
+        }
+        .box3{
+            background-color: green;
+        }
+        .box4{
+            background-color: orange;
+        }
+        .box5{
+            height: 200px;
+        }
+        .box5 ul{
+            background-color: gray;
+            height: 200px;
+            overflow: auto;
+            width: 200px;
+            margin-left: 50px;
+        }
+        li{
+            height: 20px;
+        }
+        .box6 ul{
+            background-color: gray;
+            height: 200px;
+            overflow: auto;
+            width: 200px;
+            margin-left: 50px;
+        }
+    </style>
+</head>
+<!-- 事件修饰符 -->
+<!-- 
+    1.prevent   阻止默认事件(常用)
+    2.stop      阻止事件冒泡(常用)，让事件冒泡在此元素的事件执行完后停下来，不再执行外层元素的事件
+    3.once      事件只触发一次(常用)
+    4.capture   让事件在捕获阶段就执行
+    5.self      只有event.target是当前操作的元素时才触发事件
+    6.passive   事件的默认行为立即执行，无需等待回调事件执行完毕
+ -->
+<body>
+    <div class="box">
+        <div @click.prevent="show1" class="box1">
+            <button @click="show1">我是按钮一</button>
+        </div>
+        <div @click="show1" class="box2">
+            <button @click.stop="show1">我是按钮二</button>
+        </div>
+        <div class="box3">
+            <button @click.once="show1">我是按钮三</button>
+        </div>
+        <div @click.capture="show2(1111111)" class="box4">
+            <button @click="show2(222222222)">我是按钮五</button>
+        </div>
+        <div @click.self="show3" class="box4">
+            <button @click="show3">我是按钮五</button>
+        </div>
+        <div class="box5">
+            <!-- @scroll  滚动条滚动时触发，滚动条不能滚动时不在触发，上下箭头鼠标滚轮或者啦滚动条都能触发 
+                用此方法时，滚动条滚动事件不会等待回调事件结束后才会触发
+            -->
+            <ul @scroll="show4(1111111111)">
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+            </ul>
+        </div>
+        <div class="box6">
+            <!-- @wheel  鼠标滚轮滚动时才会触发，每滚动一次就触发一次，即使滚动不能滚动了，
+                只要滚动了滚轮，事件依然会触发，且只有鼠标滚轮滚动会触发。
+                用此方法时，滚动条滚动事件会等待回调事件结束后才会触发 
+            -->
+            <ul @wheel.passive="show4(22222222222)">
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+                <li>11233555</li>
+            </ul>
+        </div>
+        <!-- 事件修饰符可以链式调用 -->
+        <div @click="show1" class="box7">
+            <a @click.stop.prevent="show1" href="https://www.baidu.com">点我进百度</a>
+        </div>
+    </div>
+    <script>
+    Vue.config.productionTip = false;
+    // 当我们给一个大盒子和一个嵌套的小盒子都加了点击事件时，点击事件会被触发两次
+    // 很显然，这样的效果是我们不想要的，那么我们可以给大盒子加事件修饰符prevent来阻止大盒子的默认事件
+        let vm = new Vue({
+            el: ".box",
+            methods: {
+                show1(){
+                    alert('我是弹窗！！！')
+                },
+                show2(num){
+                    alert(num)
+                },
+                show3(event){
+                    console.log(event.target)
+                },
+                show4(str){
+                    for (let i = 0; i < 10000; i++) {
+                        console.log(1)
+                    }
+                }
+            }
+        });
+        // 事件冒泡：js在执行事件的时候首先会从外至内先捕获事件，
+        // 然后进入冒泡阶段，此时被捕获到的事件会从内至外依次执行
+
+        // event.target
+        /*
+            通过show3的例子我们可以发现，点击按钮后，控制台出现了两个按钮！为什么？
+            同上理：我们在点击按钮时，点击事件会在冒泡阶段执行，又因为我们点击的是按钮这个元素
+            所以event.target会打印当前元素(点击的按钮)，但是因为当前在冒泡阶段，所以父元素的点击事件也会执行
+            而父元素绑定的也是show3，所以show3又会执行一遍，因为我们只点击过按钮元素，所以show3还会把按钮元素打印到
+            控制台
+            这就导致：我们没有点击父元素，而父元素的绑定事件却执行了。很显然我们不想要这样的结果
+            所以我们需要用self事件修饰符来解决这个问题，只有event.target是当前操作的元素时才触发事件
+        */
+       /*
+            passive:可以看到，在@wheel事件添加了passive事件修饰符后，
+            @wheel绑定的事件不会再等待回调事件执行后在执行，而是立即执行
+       */
+    </script>
+</body>
+
+</html>
