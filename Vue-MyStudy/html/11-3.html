@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>监视属性-02</title>
+    <script src="../lib/vue.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <p>今天天气很{{info}}</p>
+        <button @click="click">点我切换</button>
+    </div>
+    <script>
+Vue.config.productionTip = false;
+        const vm = new Vue({
+            el: ".box",
+            data: {
+                feel:true
+            },
+            methods: {
+                click(){
+                    this.feel = !this.feel
+                }
+            },
+            computed:{
+                info(){
+                     return this.feel == true ? '炎热':'凉爽' 
+                }
+            },  
+            // watch简写
+            // watch:{
+            //     feel(){
+            //         console.log('feel被修改了',newdata,olddata)
+            //     }
+            // }
+        });
+        // $watch简写
+        vm.$watch('feel',function (newdata,olddata) {
+            console.log('feel被改变了',newdata,olddata)
+        })
+
+
+        // 注意！！！简写watch语法时，不能有其他配置项
+    </script>
+</body>
+
+</html>

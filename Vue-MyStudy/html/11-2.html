@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>监视属性-02</title>
+    <script src="../lib/vue.js"></script>
+</head>
+    <!-- 
+        vue中的监视属性watch默认不监测对象内部值的改变(只监测第一层)
+        配置deep属性为true可以监测对象内部值得改变(监测多层)
+
+        Vue自身可以监测对象内部值的改变，只是Vue提供的watch方法默认不行
+        因为深度检测会让watch效率降低，所以在我们使用watch时，要根据数据的具体结构，去决定是否使用深度检测
+     -->
+<body>
+    <div class="box">
+        <p>{{numbers.a}}</p>
+        <button @click="numbers.a++">点我改变a</button>
+    </div>
+    <script>
+Vue.config.productionTip = false;
+        const vm = new Vue({
+            el: ".box",
+            data: {
+                numbers:{
+                    a:1,
+                    b:1,
+                    c:{
+                        d:1
+                    }
+                }
+            },
+        });
+        vm.$watch('numbers',{
+            // immediate:true,
+            deep:true,
+            handler () {
+                console.log('feel被修改了')
+            }
+        })
+
+        // 
+    </script>
+</body>
+
+</html>

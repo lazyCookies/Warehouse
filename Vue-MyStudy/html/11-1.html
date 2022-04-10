@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>监视属性-02</title>
+    <script src="../lib/vue.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <p>今天天气很{{info}}</p>
+        <button @click="click">点我切换</button>
+    </div>
+    <script>
+Vue.config.productionTip = false;
+        const vm = new Vue({
+            el: ".box",
+            data: {
+                feel:true
+            },
+            methods: {
+                click(){
+                    this.feel = !this.feel
+                }
+            },
+            computed:{
+                info(){
+                     return this.feel == true ? '炎热':'凉爽' 
+                }
+            },  
+            // watch:{
+            //     feel:{
+            //         // handler是vue中Watch的一个方法,不能自定义函数名！！！
+            //         // 当feel的值发生改变，vue就会调用handler这个函数
+            //         handler(newdata,olddata){
+            //             console.log('feel被修改了',newdata,olddata)
+            //         },
+            //         // immediate默认为false，当他为true时，可以在页面初始化时调用一下handler函数
+            //         // 因为初始化时feel还没有旧的值，所以olddata为undefined
+            //         immediate:true
+            //     }
+            // }
+        });
+        // watch的第二种写法
+        vm.$watch('feel',{
+            immediate:true,
+            handler (newdata,olddata) {
+                console.log('feel被修改了',newdata,olddata)
+            }
+        })
+
+        // 如果传入了一个未定义的属性，$watch不会报错，而是会输出undefined
+        // 这里的aaa带引号是$watch的默认写法，不带引号的是简化写法，上面的同理
+        // vm.$watch('aaa',{
+        //     immediate:true,
+        //     handler (newdata,olddata) {
+        //         console.log('feel被修改了',newdata,olddata)
+        //     }
+        // })
+    </script>
+</body>
+
+</html>

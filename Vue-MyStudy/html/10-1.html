@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算属性-插值方法</title>
+    <script src="../lib/vue.js"></script>
+</head>
+
+<body>
+    <!-- 插值语法实现双向绑定 -->
+    <!-- 
+        可以看到，我们可以用插值语法实现双向绑定从而让输入框中的内容和p标签中的
+        双向改变
+    -->
+    <!-- 
+        虽然这样写很简单，但是我们如果有更多的需求，你就会发现我们需要在{{}}中写很多表达式
+        这使得本身就比较混乱的html更加混乱，非常不好维护，也不美观
+     -->
+    <div class="box">
+        <div class="box1">
+            姓：
+            <input type="text" name="" id="" v-model:value="firstname">
+            <br>
+            <br>
+            名：
+            <input type="text" name="" id="" v-model:value="lastname">
+            全名：
+            <p>{{firstname}}-{{lastname}}</p>
+        </div>
+    </div>
+    <script>
+Vue.config.productionTip = false;
+        let vm = new Vue({
+            el: ".box",
+            data: {
+                firstname:'王',
+                lastname:'礼壮',
+            },
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算属性-computed方法</title>
+    <script src="../lib/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        computed方法实现双向绑定
+        这种方法需要用到computed这个Vue中的方法
+        computed中的方法可以直接在vm上找到
+
+        我们可以在computed中添加一个属性，将要显示的数据在此属性的get函数中拼接并返回，如果要将数据显示在页面上，
+        则只需要在{{}}中写入此方法的名字即可，无需调用get函数，Vue会帮我们调用
+        如果你有时需要改fullname中的数据，那么需要给fullname添加一个set方法，在set方法
+        中添加一个形参，再用split方法将修改的数据分割成一个数组，然后将data中对应的属性值改为数组中的数据即可
+
+        computed有缓存机制，所以get只会被调用一次，往后的数据都会直接再缓存中找到
+        直到原有的数据发生改变，get才会再次调用
+
+        computed属性中的属性值是通过计算得来的
+    -->
+    <div class="box">
+        <input type="text" name="" id="" v-model:value="firstname">
+        <br>
+        <br>
+        <input type="text" name="" id="" v-model:value="lastname">
+        <br><br>
+        <p>{{fullname}}</p>
+        <p>{{fullname}}</p>
+        <p>{{fullname}}</p>
+        <p>{{fullname}}</p>
+    </div>
+    <script>
+Vue.config.productionTip = false;
+        let vm = new Vue({
+            el: ".box",
+            data: {
+                firstname:'王',
+                lastname:'礼壮'
+            },
+            computed: {
+                fullname:{
+                    get(){
+                        console.log('get被调用了')
+                        return this.firstname + '-' + this.lastname
+                    },
+                    set(value){
+                        const arr = value.split('-')
+                        this.firstname = arr[0]
+                        this.lastname = arr[1]
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
