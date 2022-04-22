@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://www.fdfangzhou.top/posts/4234733254.html/ -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.fdfangzhou.top/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.fdfangzhou.top/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.fdfangzhou.top/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="https://www.fdfangzhou.top/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="./git使用指南 _ John知识分享_files/main.css">
+
+
+
+<link rel="stylesheet" href="./git使用指南 _ John知识分享_files/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="./git使用指南 _ John知识分享_files/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.fdfangzhou.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false}}</script><script src="./git使用指南 _ John知识分享_files/config.js.下载"></script>
+<meta name="description" content="因为家中自己电脑的小项目和公司电脑自己的项目不一样，每次想在家中继续撸公司电脑上代码时会稍微麻烦点。之前的做法是上传网盘，今天突然想到直接上传git私有仓库可能更方便一点。便有了这篇记录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git使用指南">
+<meta property="og:url" content="http://www.fdfangzhou.top/posts/4234733254.html/index.html">
+<meta property="og:site_name" content="John知识分享">
+<meta property="og:description" content="因为家中自己电脑的小项目和公司电脑自己的项目不一样，每次想在家中继续撸公司电脑上代码时会稍微麻烦点。之前的做法是上传网盘，今天突然想到直接上传git私有仓库可能更方便一点。便有了这篇记录">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-04-08T13:41:02.000Z">
+<meta property="article:modified_time" content="2022-04-08T15:20:19.300Z">
+<meta property="article:author" content="John">
+<meta property="article:tag" content="git">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://www.fdfangzhou.top/posts/4234733254.html/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://www.fdfangzhou.top/posts/4234733254.html/","path":"posts/4234733254.html/","title":"git使用指南"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>git使用指南 | John知识分享</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style type="text/css">._th-container ._th-item{margin-bottom:3px;position:relative;width:0;height:0;cursor:pointer;opacity:.3;background-color:aquamarine;border-radius:100%;text-align:center;line-height:30px;-webkit-transition:all .35s;-o-transition:all .35s;transition:all .35s;right:30px}._th-container ._th-item,._th-container ._th-click-hover,._th_cover-all-show-times ._th_times{-webkit-box-shadow:-3px 4px 12px -5px black;box-shadow:-3px 4px 12px -5px black}._th-container:hover ._th-item._item-x2{margin-left:18px;width:40px;height:40px;line-height:40px}._th-container:hover ._th-item._item-x-2{margin-left:17px;width:38px;height:38px;line-height:38px}._th-container:hover ._th-item._item-xx2{width:36px;height:36px;margin-left:16px;line-height:36px}._th-container:hover ._th-item._item-xx-2{width:32px;height:32px;line-height:32px;margin-left:14px}._th-container:hover ._th-item._item-reset{width:30px;line-height:30px;height:30px;margin-left:10px}._th-click-hover{position:relative;-webkit-transition:all .5s;-o-transition:all .5s;transition:all .5s;height:45px;width:45px;cursor:pointer;opacity:.3;border-radius:100%;background-color:aquamarine;text-align:center;line-height:45px;right:0}._th-container:hover{left:-5px}._th-container{font-size:12px;-webkit-transition:all .5s;-o-transition:all .5s;transition:all .5s;left:-35px;top:20%;position:fixed;-webkit-box-sizing:border-box;box-sizing:border-box;z-index:100000;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}._th-container ._th-item:hover{opacity:.8;background-color:#5fb492;color:aliceblue}._th-container ._th-item:active{opacity:.9;background-color:#1b3a26;color:aliceblue}._th-container:hover ._th-click-hover{opacity:.8}._th-container:hover ._th-item{opacity:.6;right:0}._th-container ._th-click-hover:hover{opacity:.8;background-color:#5fb492;color:aliceblue}._th_cover-all-show-times{position:fixed;top:0;right:0;width:100%;height:100%;z-index:99999;opacity:1;font-weight:900;font-size:30px;color:#4f4f4f;background-color:rgba(0,0,0,0.1)}._th_cover-all-show-times._th_hidden{z-index:-99999;opacity:0;-webkit-transition:1s all;-o-transition:1s all;transition:1s all}._th_cover-all-show-times ._th_times{width:300px;height:300px;border-radius:50%;background-color:rgba(127,255,212,0.51);text-align:center;line-height:300px;position:absolute;top:50%;right:50%;margin-top:-150px;margin-right:-150px}</style></head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader" style="opacity: 1; top: 0px;">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button" style="opacity: 1; top: 0px;">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="https://www.fdfangzhou.top/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title" style="opacity: 1; top: 0px;">John知识分享</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" style="opacity: 1; top: 0px;">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home animated fadeInDown"><a href="https://www.fdfangzhou.top/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about animated fadeInDown"><a href="https://www.fdfangzhou.top/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags animated fadeInDown"><a href="https://www.fdfangzhou.top/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories animated fadeInDown"><a href="https://www.fdfangzhou.top/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives animated fadeInDown"><a href="https://www.fdfangzhou.top/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search animated fadeInDown">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar animated fadeInUp">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="https://www.fdfangzhou.top/posts/4234733254.html/#%E4%B8%80%E3%80%81%E5%AE%89%E8%A3%85git"><span class="nav-number">1.</span> <span class="nav-text">一、安装git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="https://www.fdfangzhou.top/posts/4234733254.html/#%E4%BA%8C%E3%80%81%E5%88%9B%E5%BB%BAssh-key%E3%80%81%E9%85%8D%E7%BD%AEgit"><span class="nav-number">2.</span> <span class="nav-text">二、创建ssh key、配置git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="https://www.fdfangzhou.top/posts/4234733254.html/#%E4%B8%89%E3%80%81%E5%BF%BD%E7%95%A5%E4%B8%8D%E6%83%B3%E6%8F%90%E4%BA%A4%E7%9A%84%E6%96%87%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">三、忽略不想提交的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="https://www.fdfangzhou.top/posts/4234733254.html/#%E5%9B%9B%E3%80%81%E6%8E%A8%E9%80%81%E4%BB%A3%E7%A0%81%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-number">4.</span> <span class="nav-text">四、推送代码到远程仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="https://www.fdfangzhou.top/posts/4234733254.html/#%E4%BA%94%E3%80%81%E4%BB%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E6%8B%89%E5%8F%96%E4%BB%A3%E7%A0%81"><span class="nav-number">5.</span> <span class="nav-text">五、从远程仓库拉取代码</span></a></li><li class="nav-item nav-level-3 active"><a class="nav-link active active-current" href="https://www.fdfangzhou.top/posts/4234733254.html/#%E5%85%AD%E3%80%81Git%E6%81%A2%E5%A4%8D%E4%B9%8B%E5%89%8D%E7%89%88%E6%9C%AC%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">6.</span> <span class="nav-text">六、Git恢复之前版本的方法</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John</p>
+  <div class="site-description" itemprop="description">John个人知识分享</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="https://www.fdfangzhou.top/archives/">
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="https://www.fdfangzhou.top/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="https://www.fdfangzhou.top/tags/">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="./git使用指南 _ John知识分享_files/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top back-to-top-on" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>100%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block animated fadeIn">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.fdfangzhou.top/posts/4234733254.html/">
+
+    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John">
+      <meta itemprop="description" content="John个人知识分享">
+    </span>
+
+    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="John知识分享">
+    </span>
+      <header class="post-header animated fadeInDown">
+        <h1 class="post-title" itemprop="name headline">
+          git使用指南
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-04-08 21:41:02 / 修改时间：23:20:19" itemprop="dateCreated datePublished" datetime="2022-04-08T21:41:02+08:00">2022-04-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+          <a href="https://www.fdfangzhou.top/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 ≈</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body animated fadeInDown" itemprop="articleBody">
+        <p>因为家中自己电脑的小项目和公司电脑自己的项目不一样，每次想在家中继续撸公司电脑上代码时会稍微麻烦点。之前的做法是上传网盘，今天突然想到直接上传git私有仓库可能更方便一点。便有了这篇记录</p>
+<span id="more"></span>
+
+<h3 id="一、安装git"><a href="https://www.fdfangzhou.top/posts/4234733254.html/#%E4%B8%80%E3%80%81%E5%AE%89%E8%A3%85git" class="headerlink" title="一、安装git"></a>一、安装git</h3><p>此处忽略</p>
+<h3 id="二、创建ssh-key、配置git"><a href="https://www.fdfangzhou.top/posts/4234733254.html/#%E4%BA%8C%E3%80%81%E5%88%9B%E5%BB%BAssh-key%E3%80%81%E9%85%8D%E7%BD%AEgit" class="headerlink" title="二、创建ssh key、配置git"></a>二、创建ssh key、配置git</h3><ul>
+<li><p>1、设置<code>username</code>和<code>email</code></p>
+<figure class="highlight shell"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> git config --global user.name <span class="hljs-string">"John"</span></span></span><br><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> git config --global user.email <span class="hljs-string">"xxxxxxx@qq.com"</span></span></span><br></pre></td></tr></tbody></table></div></figure></li>
+<li><p>2、通过终端命令创建<code>ssh key</code></p>
+<figure class="highlight shell"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> ssh-keygen -t rsa -C <span class="hljs-string">"xxxxxxx@qq.com"</span></span></span><br></pre></td></tr></tbody></table></div></figure>
+
+<p>这时会要求确认路径和输入密码，我们这使用默认的一路回车就行。成功的话会在提示的目录下生成<code>.ssh</code>文件夹，进去，打开<code>id_rsa.pub</code>，复制里面的<code>key</code></p>
+</li>
+<li><p>3、登录GitHub，添加<code>ssh key</code>，点击<strong>Settings</strong>–<strong>SSH and GPG keys</strong>–<strong>New SSH key</strong>，将复制的key粘贴到<strong>Key</strong>中，并配置一个<strong>Title</strong>，点击<strong>Add SSH key</strong></p>
+</li>
+<li><p>4、设置git代理（科学上网）</p>
+<figure class="highlight shell"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 设置ss</span></span><br><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> git config --global http.proxy <span class="hljs-string">'socks5://127.0.0.1:1080'</span></span></span><br><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> git config --global https.proxy <span class="hljs-string">'socks5://127.0.0.1:1080'</span></span></span><br><span class="line"><span class="hljs-meta"></span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 设置代理</span></span><br><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> git config --global https.proxy http://127.0.0.1:1080</span></span><br><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> git config --global https.proxy https://127.0.0.1:1080</span></span><br><span class="line"><span class="hljs-meta"></span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 取消代理</span></span><br><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> git config --global --<span class="hljs-built_in">unset</span> http.proxy</span></span><br><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> git config --global --<span class="hljs-built_in">unset</span> https.proxy</span></span><br></pre></td></tr></tbody></table></div></figure></li>
+<li><p>5、链接验证</p>
+<figure class="highlight shell"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> ssh -T git@github.com</span></span><br><span class="line"><span class="hljs-meta"></span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 出现下方提示说明已经链接成功</span></span><br><span class="line">Hi John! You've successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></tbody></table></div></figure></li>
+</ul>
+<h3 id="三、忽略不想提交的文件"><a href="https://www.fdfangzhou.top/posts/4234733254.html/#%E4%B8%89%E3%80%81%E5%BF%BD%E7%95%A5%E4%B8%8D%E6%83%B3%E6%8F%90%E4%BA%A4%E7%9A%84%E6%96%87%E4%BB%B6" class="headerlink" title="三、忽略不想提交的文件"></a>三、忽略不想提交的文件</h3><ul>
+<li><p>在项目中添加<code>.gitignore</code>文件，填写要忽略的文件或文件夹</p>
+<figure class="highlight shell"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 一些常用的忽略文件</span></span><br><span class="line">.idea/</span><br><span class="line">target/</span><br><span class="line">.gitignore</span><br><span class="line"><span class="hljs-meta"></span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 简单的忽略匹配规则</span></span><br><span class="line">*.a       # 忽略所有 .a 结尾的文件</span><br><span class="line">/TODO     # 仅仅忽略项目根目录下的 TODO 文件，不包括 subdir/TODO</span><br><span class="line">build/    # 忽略 build/ 目录下的所有文件</span><br><span class="line">doc/*.txt # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt</span><br></pre></td></tr></tbody></table></div></figure>
+
+<p>然后在push项目，这样不会把.idea文件夹提交到远端</p>
+</li>
+<li><p>如果已经把.idea文件夹一起提交了，需要将远端提交的文件给删掉</p>
+<figure class="highlight shell"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 加上 -n 这个参数，执行命令时，是不会删除任何文件，而是展示此命令要删除的文件列表预览。</span></span><br><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> git rm -r -n --cached 文件/文件夹名称</span> </span><br><span class="line"><span class="hljs-meta"></span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 确定无误后删除文件</span></span><br><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> git rm -r --cached .idea</span></span><br></pre></td></tr></tbody></table></div></figure>
+
+<p>删除后，再在项目中添加 <code>.gitignore</code>文件，并设置要忽略的文件或文件夹</p>
+<p>最后再push，把删除和<code>.gitignore</code>都提交远端，远端的<code>.idea</code>会被删除。同时以后再push时就不会提交<code>.idea</code>了</p>
+</li>
+</ul>
+<h3 id="四、推送代码到远程仓库"><a href="https://www.fdfangzhou.top/posts/4234733254.html/#%E5%9B%9B%E3%80%81%E6%8E%A8%E9%80%81%E4%BB%A3%E7%A0%81%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93" class="headerlink" title="四、推送代码到远程仓库"></a>四、推送代码到远程仓库</h3><ul>
+<li><p>1、进入想推送到仓库的文件夹中</p>
+</li>
+<li><p>2、依次执行命令</p>
+<figure class="highlight shell"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> git init   <span class="hljs-comment"># 初始化版本库</span></span></span><br><span class="line"><span class="hljs-meta"></span></span><br><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> git add .  <span class="hljs-comment"># 添加文件到版本库（只是添加到缓存区），.代表添加文件夹下所有文件</span></span> </span><br><span class="line"><span class="hljs-meta"></span></span><br><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> git commit -m <span class="hljs-string">"first commit"</span> 	<span class="hljs-comment"># 把添加的文件提交到版本库，并填写提交备注</span></span></span><br></pre></td></tr></tbody></table></div></figure>
+
+<p>到目前为止，我们完成了代码库的初始化，但代码是在本地，还没有提交到远程服务器</p>
+</li>
+<li><p>3、把当前分支master推送到远程代码服务器</p>
+<figure class="highlight shell"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> git remote add origin https://github.com/xxxx/xxxx.git  <span class="hljs-comment"># 把本地库与远程库关联</span></span></span><br><span class="line"><span class="hljs-meta"></span></span><br><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> git push -u origin master   <span class="hljs-comment"># 第一次推送时,先将本地分支与远程同名分支相关联</span></span></span><br><span class="line"><span class="hljs-meta"></span></span><br><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> git push origin master 	  <span class="hljs-comment"># 第一次推送后，直接使用该命令即可推送修改</span></span></span><br></pre></td></tr></tbody></table></div></figure></li>
+<li><p>4、push 命令详解</p>
+<ul>
+<li><p>本地当前分支 推送到 远程指定分支上</p>
+<figure class="highlight shell"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> git push origin &lt;本地分支名&gt;:&lt;远程分支名&gt;</span></span><br></pre></td></tr></tbody></table></div></figure></li>
+<li><p>本地当前分支 推送到 与本地当前分支同名的远程分支上</p>
+<figure class="highlight shell"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> git push origin &lt;本地分支名&gt;</span></span><br></pre></td></tr></tbody></table></div></figure></li>
+<li><p>本地当前分支 推送到 与本地当前分支同名的远程分支上（需先关联远程分支，方法见第一次推送）</p>
+<figure class="highlight shell"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> git push</span></span><br></pre></td></tr></tbody></table></div></figure></li>
+</ul>
+</li>
+</ul>
+<h3 id="五、从远程仓库拉取代码"><a href="https://www.fdfangzhou.top/posts/4234733254.html/#%E4%BA%94%E3%80%81%E4%BB%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E6%8B%89%E5%8F%96%E4%BB%A3%E7%A0%81" class="headerlink" title="五、从远程仓库拉取代码"></a>五、从远程仓库拉取代码</h3><ul>
+<li><p>一般项目中，需要先将最新代码拉取到本地，再push上去</p>
+</li>
+<li><p>pull 命令详解</p>
+<ul>
+<li><p>远程指定分支 拉取到 本地指定分支上</p>
+<figure class="highlight shell"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin &lt;远程分支名&gt;:&lt;本地分支名&gt;</span><br></pre></td></tr></tbody></table></div></figure></li>
+<li><p>远程指定分支 拉取到 本地当前分支上</p>
+<figure class="highlight shell"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin &lt;远程分支名&gt;</span><br></pre></td></tr></tbody></table></div></figure></li>
+<li><p>将与本地当前分支同名的远程分支 拉取到 本地当前分支上（需先关联远程分支，方法见第一次推送）</p>
+<figure class="highlight shell"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></tbody></table></div></figure></li>
+</ul>
+</li>
+</ul>
+<h3 id="六、Git恢复之前版本的方法"><a href="https://www.fdfangzhou.top/posts/4234733254.html/#%E5%85%AD%E3%80%81Git%E6%81%A2%E5%A4%8D%E4%B9%8B%E5%89%8D%E7%89%88%E6%9C%AC%E7%9A%84%E6%96%B9%E6%B3%95" class="headerlink" title="六、Git恢复之前版本的方法"></a>六、Git恢复之前版本的方法</h3><ul>
+<li><p>1、git reset（回退）：修改HEAD的位置，即将HEAD指向的位置改变为之前存在的某个版本。如从版本三回退到版本一，那么版本二、版本三都不见了</p>
+<ul>
+<li><p>查看版本号</p>
+<figure class="highlight shell"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 显示所有提交过的版本信息</span></span><br><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> git <span class="hljs-built_in">log</span></span></span><br><span class="line"><span class="hljs-meta"></span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 查看所有分支的所有操作记录（包括已经被删除的 commit 记录和 reset 的操作）</span></span><br><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> git reflog</span></span><br></pre></td></tr></tbody></table></div></figure></li>
+<li><p>使用<code>git reset --hard 目标版本号</code>命令将版本回退到目标版本</p>
+<figure class="highlight shell"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> git reset --hard f42aa0e</span></span><br></pre></td></tr></tbody></table></div></figure></li>
+<li><p>使用<code>git push -f</code>提交更改</p>
+<p>此时如果用“git push”会报错，因为我们本地库HEAD指向的版本比远程库的要旧</p>
+<figure class="highlight shell"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hint: Updates were rejected because the tip of your current branch is behind </span><br><span class="line">hint: its remote counterpart. Integrate the remote changes (e.g. </span><br><span class="line">hint: 'git pull ...') before pushing again. </span><br><span class="line">hint: See the 'Note about fast-forwards' in 'git push --help' for details.</span><br></pre></td></tr></tbody></table></div></figure>
+
+<p>所以我们强制推上去就可以了</p>
+<figure class="highlight shell"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> git push -f</span></span><br></pre></td></tr></tbody></table></div></figure></li>
+</ul>
+</li>
+<li><p>2、git revert（反做）：反做某一个版本，以达到撤销该版本的修改的目的。如发现版本二有bug，想要撤销版本二，但又不想影响撤销版本三的提交，就可以用 git revert 命令来反做版本二，生成新的版本四。这个版本四里会保留版本三的东西，但撤销了版本二的东西</p>
+<ul>
+<li><p>查看版本号</p>
+<figure class="highlight shell"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 显示所有提交过的版本信息</span></span><br><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> git <span class="hljs-built_in">log</span></span></span><br><span class="line"><span class="hljs-meta"></span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 查看所有分支的所有操作记录（包括已经被删除的 commit 记录和 reset 的操作）</span></span><br><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> git reflog</span></span><br></pre></td></tr></tbody></table></div></figure></li>
+<li><p>使用<code>git revert -n 版本号</code>反做</p>
+<figure class="highlight shell"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> git revert -n 8b89621019c9adc6fc4d242cd41daeb13aeb9861	<span class="hljs-comment"># 反做版本号为8b89621的版本</span></span></span><br><span class="line"><span class="hljs-meta"></span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 这里可能会出现冲突，那么需要手动修改冲突的文件。而且要git add 文件名</span></span><br></pre></td></tr></tbody></table></div></figure></li>
+<li><p>使用<code>git commit -m 版本名</code>提交</p>
+<figure class="highlight shell"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> git commit -m <span class="hljs-string">"revert add text.txt"</span></span> </span><br></pre></td></tr></tbody></table></div></figure></li>
+<li><p>推上远程库</p>
+<figure class="highlight shell"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> git push</span></span><br></pre></td></tr></tbody></table></div></figure></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>John
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://www.fdfangzhou.top/posts/4234733254.html/" title="git使用指南">http://www.fdfangzhou.top/posts/4234733254.html/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="https://www.fdfangzhou.top/tags/git/" rel="tag"># git</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="https://www.fdfangzhou.top/posts/361293981.html/" rel="prev" title="测试环境搭建不完全指南">
+                  <i class="fa fa-chevron-left"></i> 测试环境搭建不完全指南
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer" style="opacity: 1;">
+    <div class="footer-inner">
+
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">京ICP备2021026339号-1 </a>
+      <img src="./git使用指南 _ John知识分享_files/gonganicon.png" alt=""><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010602103722%E5%8F%B7" rel="noopener" target="_blank">京公网安备 11010602103722号 </a>
+  </div>
+
+<div class="copyright">
+  © 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">33k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">30 分钟</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> &amp; <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script size="300" alpha="0.6" zindex="-1" src="./git使用指南 _ John知识分享_files/ribbon.min.js.下载"></script><canvas width="2560" height="1329" style="opacity: 0.6; position: fixed; top: 0px; left: 0px; z-index: -1; width: 100%; height: 100%; pointer-events: none;"></canvas>
+  <script src="./git使用指南 _ John知识分享_files/anime.min.js.下载" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="./git使用指南 _ John知识分享_files/comments.js.下载"></script><script src="./git使用指南 _ John知识分享_files/utils.js.下载"></script><script src="./git使用指南 _ John知识分享_files/motion.js.下载"></script><script src="./git使用指南 _ John知识分享_files/next-boot.js.下载"></script>
+
+  
+<script src="./git使用指南 _ John知识分享_files/search.js.下载" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="./git使用指南 _ John知识分享_files/local-search.js.下载"></script>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<div><div class="_th-container">
+    <div class="_th-click-hover _item-input">
+        x1.00
+    </div>
+    <div class="_th-item _item-x2">&gt;</div>
+    <div class="_th-item _item-x-2">&lt;</div>
+    <div class="_th-item _item-xx2">&gt;&gt;</div>
+    <div class="_th-item _item-xx-2">&lt;&lt;</div>
+    <div class="_th-item _item-reset">O</div>
+</div>
+<div class="_th_cover-all-show-times _th_hidden">
+    <div class="_th_times">x1.00</div>
+</div></div></body></html>
